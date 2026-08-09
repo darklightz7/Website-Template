@@ -3,52 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Service Template</title>
-    <!-- Importing a clean, modern font from Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Blackhawk Protective Coating | Premium Truck Bedliners</title>
+    <!-- Google Fonts: Oswald for rugged, industrial headings and Inter for clean body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles & Reset */
+        /* Base & Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: #333; line-height: 1.6; background-color: #f9fafb; }
+        body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f3f4f6; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, .logo { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         a { text-decoration: none; color: inherit; }
-        
+
+        /* Variables */
+        :root {
+            --primary: #FF5A1F; /* Industrial Orange */
+            --dark-bg: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.5rem; font-weight: 800; color: #2563eb; }
-        .nav-links a { margin-left: 20px; font-weight: 600; color: #4b5563; transition: color 0.3s; }
-        .nav-links a:hover { color: #2563eb; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(13, 13, 13, 0.95); position: fixed; width: 100%; top: 0; z-index: 100; border-bottom: 1px solid #222; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 1px; }
+        .logo span { color: var(--primary); }
+        .nav-links a { margin-left: 30px; font-weight: 500; font-size: 0.95rem; color: var(--text-main); transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta { background: var(--primary); padding: 10px 20px; border-radius: 4px; color: #fff; font-weight: 600; margin-left: 30px; transition: background 0.3s; }
+        .nav-cta:hover { background: #e04a15; }
 
-        /* Hero Section */
-        .hero { text-align: center; padding: 100px 20px; background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; font-weight: 800; line-height: 1.2; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9; }
-        .btn { display: inline-block; padding: 15px 30px; background: #fbbf24; color: #92400e; font-weight: 800; border-radius: 8px; font-size: 1.1rem; transition: transform 0.2s, background 0.3s; }
-        .btn:hover { background: #f59e0b; transform: translateY(-2px); }
+        /* Hero Section with Video Background Placeholder */
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; margin-top: 60px; overflow: hidden; background: #111; }
+        .hero-video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.4; }
+        /* Placeholder for actual video - using a dark gradient for now */
+        .hero-video-wrapper { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1558509806-e7e0e7a2b0e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; }
+        
+        .hero-content { position: relative; z-index: 2; max-width: 800px; }
+        .hero-content h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; letter-spacing: 2px; }
+        .hero-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; font-weight: 400; }
+        .btn-large { display: inline-block; padding: 18px 40px; background: var(--primary); color: #fff; font-family: 'Oswald', sans-serif; font-size: 1.2rem; letter-spacing: 1px; transition: transform 0.2s, background 0.3s; }
+        .btn-large:hover { background: #e04a15; transform: translateY(-3px); }
 
-        /* Services Section */
-        .services { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding: 80px 5%; }
-        .card { background: white; padding: 40px; border-radius: 12px; width: 100%; max-width: 320px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card h3 { margin-bottom: 15px; color: #1f2937; }
-        .card p { color: #6b7280; font-size: 0.95rem; }
+        /* Features/Benefits */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 100px 5%; background: var(--dark-bg); }
+        .feature-card { background: var(--card-bg); padding: 40px 30px; border-left: 4px solid var(--primary); transition: transform 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* Form Section */
-        .contact { background: white; padding: 80px 20px; text-align: center; border-top: 1px solid #e5e7eb; }
-        .contact h2 { font-size: 2.2rem; margin-bottom: 30px; color: #111827; }
-        .form-container { max-width: 500px; margin: 0 auto; background: #f9fafb; padding: 30px; border-radius: 12px; border: 1px solid #e5e7eb; }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #374151; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 6px; font-family: inherit; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-        .submit-btn { width: 100%; padding: 14px; background: #2563eb; color: white; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.3s; }
-        .submit-btn:hover { background: #1d4ed8; }
+        /* Video Showcase Section */
+        .showcase { padding: 100px 5%; background: #111; text-align: center; }
+        .showcase h2 { font-size: 3rem; margin-bottom: 20px; color: #fff; }
+        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 50px; }
+        .video-placeholder { background: #222; height: 250px; display: flex; align-items: center; justify-content: center; border: 1px solid #333; position: relative; cursor: pointer; }
+        .video-placeholder::after { content: '▶'; font-size: 3rem; color: var(--primary); opacity: 0.8; transition: opacity 0.3s; }
+        .video-placeholder:hover::after { opacity: 1; }
+        .video-info { text-align: left; padding: 20px 0; }
+        .video-info h3 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
+
+        /* Lead Generation Form (GHL Placeholder) */
+        .lead-section { padding: 100px 5%; background: var(--dark-bg); display: flex; justify-content: center; }
+        .form-wrapper { background: var(--card-bg); padding: 50px; width: 100%; max-width: 600px; border-top: 5px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .form-wrapper h2 { font-size: 2.2rem; margin-bottom: 10px; text-align: center; }
+        .form-wrapper p { text-align: center; color: var(--text-muted); margin-bottom: 30px; }
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: #ccc; }
+        .input-group input, .input-group select { width: 100%; padding: 15px; background: #222; border: 1px solid #333; color: #fff; font-family: inherit; transition: border-color 0.3s; }
+        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--primary); }
+        .submit-btn { width: 100%; padding: 18px; background: var(--primary); color: #fff; font-family: 'Oswald', sans-serif; font-size: 1.2rem; letter-spacing: 1px; border: none; cursor: pointer; transition: background 0.3s; margin-top: 10px; }
+        .submit-btn:hover { background: #e04a15; }
 
         /* Footer */
-        footer { text-align: center; padding: 30px; background: #111827; color: #9ca3af; font-size: 0.9rem; }
+        footer { background: #000; padding: 40px 5%; text-align: center; color: #666; border-top: 1px solid #1a1a1a; }
+        footer span { color: var(--primary); font-weight: 600; }
 
-        /* Mobile Responsiveness */
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-links { display: none; } /* Hidden on mobile for simplicity right now */
+            .hero-content h1 { font-size: 3rem; }
+            .nav-links, .nav-cta { display: none; }
+            .showcase-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -56,62 +88,90 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">AgencyPro.</div>
+        <div class="logo">Blackhawk<span>.</span></div>
         <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#services">Bedliners</a>
+            <a href="#process">Our Process</a>
+            <a href="#videos">Gallery</a>
         </div>
+        <a href="#quote" class="nav-cta">GET A QUOTE</a>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
-        <h1>Lightning Fast. Custom Built.</h1>
-        <p>We build high-converting, ultra-fast websites that turn your visitors into paying customers. Stop relying on slow templates.</p>
-        <a href="#contact" class="btn">Get a Free Quote</a>
-    </header>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="card">
-            <h3>Web Design</h3>
-            <p>Custom HTML/CSS coded from scratch to ensure your site loads instantly on every device.</p>
+    <section class="hero">
+        <div class="hero-video-wrapper">
+            <!-- In the future, we can embed a muted, autoplaying background HTML5 video here -->
         </div>
-        <div class="card">
-            <h3>Automations</h3>
-            <p>We connect your site directly to GoHighLevel so you never miss a lead again.</p>
-        </div>
-        <div class="card">
-            <h3>SEO Optimized</h3>
-            <p>Clean code means Google loves your site. Rank higher simply by being faster than your competition.</p>
+        <div class="hero-content">
+            <h1>Bulletproof Your Truck Bed.</h1>
+            <p>Dallas's trusted veteran-owned experts in high-performance protective coatings. Zero warping, maximum durability, and a flawless finish that outlasts your truck.</p>
+            <a href="#quote" class="btn-large">BOOK YOUR BEDLINER</a>
         </div>
     </section>
 
-    <!-- Contact / Lead Form Section -->
-    <section id="contact" class="contact">
-        <h2>Ready to upgrade your business?</h2>
-        <div class="form-container">
-            <!-- This form is visual only right now. We will add the GHL webhook logic later! -->
-            <form id="lead-form">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" placeholder="John Doe" required>
+    <!-- Core Features -->
+    <section id="services" class="features">
+        <div class="feature-card">
+            <h3>Veteran-Owned Precision</h3>
+            <p>We bring military-grade attention to detail to every application. We prep thoroughly, mask perfectly, and coat evenly.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Zero Warping Guarantee</h3>
+            <p>Our surface prep technology completely eliminates the friction and heat that can warp thin automotive metals.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Mobile & Convenient</h3>
+            <p>Serving the entire North Texas area. We provide professional-grade protective coatings designed to withstand extreme Texas weather.</p>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section id="videos" class="showcase">
+        <h2>SEE THE ARMOR IN ACTION</h2>
+        <div class="showcase-grid">
+            <div>
+                <div class="video-placeholder"></div>
+                <div class="video-info">
+                    <h3>The Prep Process</h3>
+                    <p style="color: #9ca3af; font-size: 0.9rem;">Watch how we perfectly profile the steel before coating.</p>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" placeholder="john@example.com" required>
+            </div>
+            <div>
+                <div class="video-placeholder"></div>
+                <div class="video-info">
+                    <h3>The Application</h3>
+                    <p style="color: #9ca3af; font-size: 0.9rem;">Flawless, textured protective coating applied at the exact required thickness.</p>
                 </div>
-                <div class="form-group">
-                    <label for="message">How can we help?</label>
-                    <textarea id="message" rows="4" placeholder="Tell us about your project..."></textarea>
+            </div>
+        </div>
+    </section>
+
+    <!-- GHL Lead Form Placeholder -->
+    <section id="quote" class="lead-section">
+        <div class="form-wrapper">
+            <h2>GET PRICING</h2>
+            <p>Fill out the form below and our Dallas-based team will contact you.</p>
+            <form id="ghl-form">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="(555) 555-5555" required>
+                </div>
+                <div class="input-group">
+                    <label>Truck Make & Model</label>
+                    <input type="text" placeholder="e.g. 2023 Ford F-150" required>
+                </div>
+                <button type="submit" class="submit-btn">REQUEST QUOTE</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 AgencyPro. Built for speed.</p>
+        <p>&copy; 2026 <span>Blackhawk Protective Coating</span>. Built for extreme durability.</p>
     </footer>
 
 </body>
