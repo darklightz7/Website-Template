@@ -4,83 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackhawk Protective Coating | Premium Truck Bedliners</title>
-    <!-- Google Fonts: Oswald for rugged, industrial headings and Inter for clean body text -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
         /* Base & Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #0d0d0d; color: #f3f4f6; line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f3f4f6; line-height: 1.6; overflow-x: hidden; }
         h1, h2, h3, .logo { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
         a { text-decoration: none; color: inherit; }
 
         /* Variables */
         :root {
-            --primary: #FF5A1F; /* Industrial Orange */
-            --dark-bg: #0d0d0d;
-            --card-bg: #1a1a1a;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --primary: #FF5A1F; 
+            --primary-hover: #e04a15;
+            --dark-bg: #0a0a0a;
+            --card-bg: #111111;
+            --border: #222;
         }
 
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: rgba(13, 13, 13, 0.95); position: fixed; width: 100%; top: 0; z-index: 100; border-bottom: 1px solid #222; }
-        .logo { font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: 1px; }
+        /* Glassmorphism Navigation */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; 
+            position: fixed; width: 100%; top: 0; z-index: 100; 
+            background: rgba(5, 5, 5, 0.7); 
+            backdrop-filter: blur(12px); /* Sleek blur effect */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .logo { font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: 2px; }
         .logo span { color: var(--primary); }
-        .nav-links a { margin-left: 30px; font-weight: 500; font-size: 0.95rem; color: var(--text-main); transition: color 0.3s; }
+        .nav-links a { margin-left: 35px; font-weight: 500; font-size: 0.9rem; color: #ccc; letter-spacing: 1px; transition: color 0.3s; text-transform: uppercase; }
         .nav-links a:hover { color: var(--primary); }
-        .nav-cta { background: var(--primary); padding: 10px 20px; border-radius: 4px; color: #fff; font-weight: 600; margin-left: 30px; transition: background 0.3s; }
-        .nav-cta:hover { background: #e04a15; }
-
-        /* Hero Section with Video Background Placeholder */
-        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; margin-top: 60px; overflow: hidden; background: #111; }
-        .hero-video-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.4; }
-        /* Placeholder for actual video - using a dark gradient for now */
-        .hero-video-wrapper { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1558509806-e7e0e7a2b0e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; }
         
-        .hero-content { position: relative; z-index: 2; max-width: 800px; }
-        .hero-content h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; color: #fff; letter-spacing: 2px; }
-        .hero-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; font-weight: 400; }
-        .btn-large { display: inline-block; padding: 18px 40px; background: var(--primary); color: #fff; font-family: 'Oswald', sans-serif; font-size: 1.2rem; letter-spacing: 1px; transition: transform 0.2s, background 0.3s; }
-        .btn-large:hover { background: #e04a15; transform: translateY(-3px); }
+        /* Rugged Button Style */
+        .btn {
+            background: var(--primary); color: #fff; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 1.5px;
+            padding: 14px 28px; display: inline-block; cursor: pointer; border: none;
+            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); /* Angled tactical corners */
+            transition: all 0.3s ease; position: relative;
+        }
+        .btn:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 90, 31, 0.2); }
+        .nav-cta { margin-left: 35px; }
 
-        /* Features/Benefits */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 100px 5%; background: var(--dark-bg); }
-        .feature-card { background: var(--card-bg); padding: 40px 30px; border-left: 4px solid var(--primary); transition: transform 0.3s; }
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
-        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+        /* Hero Section with Texture & Angle */
+        .hero { 
+            position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; 
+            padding: 0 20px; background: #000;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Rugged diagonal bottom cut */
+        }
+        
+        /* Tactical Dot Mesh Overlay */
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .hero-video-wrapper { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1558509806-e7e0e7a2b0e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            animation: zoomInOut 20s infinite alternate; /* Subtle breathing effect */
+        }
 
-        /* Video Showcase Section */
-        .showcase { padding: 100px 5%; background: #111; text-align: center; }
-        .showcase h2 { font-size: 3rem; margin-bottom: 20px; color: #fff; }
-        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; margin-top: 50px; }
-        .video-placeholder { background: #222; height: 250px; display: flex; align-items: center; justify-content: center; border: 1px solid #333; position: relative; cursor: pointer; }
-        .video-placeholder::after { content: '▶'; font-size: 3rem; color: var(--primary); opacity: 0.8; transition: opacity 0.3s; }
-        .video-placeholder:hover::after { opacity: 1; }
-        .video-info { text-align: left; padding: 20px 0; }
-        .video-info h3 { font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
+        @keyframes zoomInOut { from { transform: scale(1); } to { transform: scale(1.05); } }
 
-        /* Lead Generation Form (GHL Placeholder) */
-        .lead-section { padding: 100px 5%; background: var(--dark-bg); display: flex; justify-content: center; }
-        .form-wrapper { background: var(--card-bg); padding: 50px; width: 100%; max-width: 600px; border-top: 5px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .form-wrapper h2 { font-size: 2.2rem; margin-bottom: 10px; text-align: center; }
-        .form-wrapper p { text-align: center; color: var(--text-muted); margin-bottom: 30px; }
-        .input-group { margin-bottom: 20px; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: #ccc; }
-        .input-group input, .input-group select { width: 100%; padding: 15px; background: #222; border: 1px solid #333; color: #fff; font-family: inherit; transition: border-color 0.3s; }
-        .input-group input:focus, .input-group select:focus { outline: none; border-color: var(--primary); }
-        .submit-btn { width: 100%; padding: 18px; background: var(--primary); color: #fff; font-family: 'Oswald', sans-serif; font-size: 1.2rem; letter-spacing: 1px; border: none; cursor: pointer; transition: background 0.3s; margin-top: 10px; }
-        .submit-btn:hover { background: #e04a15; }
+        .hero-content { position: relative; z-index: 3; max-width: 900px; padding-top: 50px; }
+        .hero-content h1 { font-size: 5rem; line-height: 1; margin-bottom: 20px; color: #fff; letter-spacing: 3px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .hero-content p { font-size: 1.2rem; color: #ddd; margin-bottom: 40px; font-weight: 400; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* Features/Benefits - Interactive Cards */
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 120px 5%; background: var(--dark-bg); margin-top: -50px; }
+        .feature-card { 
+            background: var(--card-bg); padding: 50px 40px; 
+            border: 1px solid var(--border); border-bottom: 4px solid var(--primary);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; overflow: hidden;
+        }
+        .feature-card:hover { transform: translateY(-10px); border-color: rgba(255, 90, 31, 0.5); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+        /* Interactive subtle shine effect on hover */
+        .feature-card::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg) translate(-100%, 100%); transition: all 0.6s ease;
+        }
+        .feature-card:hover::after { transform: rotate(45deg) translate(100%, -100%); }
+        .feature-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+        .feature-card p { color: #9ca3af; font-size: 1rem; line-height: 1.7; }
+
+        /* Video Showcase */
+        .showcase { padding: 100px 5%; background: #050505; }
+        .showcase-header { text-align: center; margin-bottom: 60px; }
+        .showcase h2 { font-size: 3.5rem; color: #fff; display: inline-block; position: relative; }
+        .showcase h2::after { content: ''; display: block; width: 60%; height: 4px; background: var(--primary); margin: 10px auto 0; }
+        
+        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+       .video-wrapper { position: relative; overflow: hidden; border: 1px solid var(--border); }
+        .video-placeholder { 
+            background: url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover; 
+            height: 300px; display: flex; align-items: center; justify-content: center; 
+            transition: transform 0.5s ease; cursor: pointer;
+        }
+        .video-wrapper:hover .video-placeholder { transform: scale(1.05); }
+        /* Play Button Overlay */
+        .play-btn { width: 70px; height: 70px; background: rgba(255, 90, 31, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: all 0.3s; }
+        .play-btn::after { content: '▶'; color: #fff; font-size: 1.5rem; margin-left: 5px; }
+        .video-wrapper:hover .play-btn { background: var(--primary); transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 90, 31, 0.5); }
+        .video-info { padding: 25px; background: var(--card-bg); position: relative; z-index: 3; }
+        .video-info h3 { font-size: 1.5rem; color: #fff; margin-bottom: 5px; }
+
+        /* Sleek Lead Form */
+        .lead-section { padding: 120px 5%; background: var(--dark-bg); display: flex; justify-content: center; position: relative; }
+        .form-wrapper { 
+            background: #0a0a0a; padding: 60px; width: 100%; max-width: 650px; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); position: relative; z-index: 2;
+        }
+        /* Tactical grid background behind form */
+        .form-wrapper::before {
+            content: ''; position: absolute; top: -10px; left: -10px; right: 10px; bottom: 10px;
+            border: 1px solid var(--primary); z-index: -1; opacity: 0.5;
+        }
+        
+        .form-wrapper h2 { font-size: 2.5rem; margin-bottom: 10px; text-align: center; }
+        .form-wrapper p { text-align: center; color: #9ca3af; margin-bottom: 40px; font-size: 1.1rem; }
+        
+        .input-group { margin-bottom: 25px; position: relative; }
+        .input-group input { 
+            width: 100%; padding: 18px 20px; background: rgba(255,255,255,0.03); 
+            border: none; border-bottom: 2px solid var(--border); 
+            color: #fff; font-family: inherit; font-size: 1rem; transition: all 0.3s;
+        }
+        .input-group input:focus { outline: none; background: rgba(255,255,255,0.05); border-bottom-color: var(--primary); }
+        /* Floating Labels effect */
+        .input-group label { 
+            position: absolute; top: 18px; left: 20px; color: #666; pointer-events: none; transition: 0.3s ease all; font-weight: 500; 
+        }
+        .input-group input:focus ~ label, .input-group input:not(:placeholder-shown) ~ label {
+            top: -10px; left: 0; font-size: 0.85rem; color: var(--primary);
+        }
+        
+        .submit-btn { width: 100%; margin-top: 15px; font-size: 1.3rem; }
 
         /* Footer */
-        footer { background: #000; padding: 40px 5%; text-align: center; color: #666; border-top: 1px solid #1a1a1a; }
-        footer span { color: var(--primary); font-weight: 600; }
+        footer { background: #000; padding: 60px 5% 40px; text-align: center; border-top: 1px solid #1a1a1a; }
+        .footer-logo { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+        .footer-logo span { color: var(--primary); }
+        footer p { color: #555; font-size: 0.95rem; }
 
-        /* Mobile Adjustments */
+        /* Scroll Reveal Animation Classes */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Mobile */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; }
-            .nav-links, .nav-cta { display: none; }
-            .showcase-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3.5rem; }
+            .nav-links, .nav-cta { display: none; } /* Add a hamburger menu later */
+            .hero { clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+            .form-wrapper { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -94,85 +174,116 @@
             <a href="#process">Our Process</a>
             <a href="#videos">Gallery</a>
         </div>
-        <a href="#quote" class="nav-cta">GET A QUOTE</a>
+        <a href="#quote" class="btn nav-cta">GET A QUOTE</a>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-video-wrapper">
-            <!-- In the future, we can embed a muted, autoplaying background HTML5 video here -->
-        </div>
+    <section class="hero reveal active">
+        <div class="hero-video-wrapper"></div>
         <div class="hero-content">
-            <h1>Bulletproof Your Truck Bed.</h1>
+            <h1>BULLETPROOF YOUR TRUCK BED.</h1>
             <p>Dallas's trusted veteran-owned experts in high-performance protective coatings. Zero warping, maximum durability, and a flawless finish that outlasts your truck.</p>
-            <a href="#quote" class="btn-large">BOOK YOUR BEDLINER</a>
+            <a href="#quote" class="btn" style="font-size: 1.3rem; padding: 18px 40px;">BOOK YOUR BEDLINER</a>
         </div>
     </section>
 
     <!-- Core Features -->
     <section id="services" class="features">
-        <div class="feature-card">
+        <div class="feature-card reveal">
             <h3>Veteran-Owned Precision</h3>
-            <p>We bring military-grade attention to detail to every application. We prep thoroughly, mask perfectly, and coat evenly.</p>
+            <p>We bring military-grade attention to detail to every application. We prep thoroughly, mask perfectly, and coat evenly. No shortcuts.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card reveal" style="transition-delay: 0.1s;">
             <h3>Zero Warping Guarantee</h3>
-            <p>Our surface prep technology completely eliminates the friction and heat that can warp thin automotive metals.</p>
+            <p>Our surface prep technology completely eliminates the friction and heat that can warp thin automotive metals, preserving your vehicle's structural integrity.</p>
         </div>
-        <div class="feature-card">
-            <h3>Mobile & Convenient</h3>
-            <p>Serving the entire North Texas area. We provide professional-grade protective coatings designed to withstand extreme Texas weather.</p>
+        <div class="feature-card reveal" style="transition-delay: 0.2s;">
+            <h3>Extreme Weather Tech</h3>
+            <p>Serving the entire North Texas area. We provide professional-grade protective coatings chemically engineered to withstand extreme Texas heat and UV rays.</p>
         </div>
     </section>
 
     <!-- Video Showcase -->
     <section id="videos" class="showcase">
-        <h2>SEE THE ARMOR IN ACTION</h2>
+        <div class="showcase-header reveal">
+            <h2>SEE THE ARMOR IN ACTION</h2>
+        </div>
         <div class="showcase-grid">
-            <div>
-                <div class="video-placeholder"></div>
+            <div class="video-wrapper reveal">
+                <div class="video-placeholder">
+                    <div class="play-btn"></div>
+                </div>
                 <div class="video-info">
                     <h3>The Prep Process</h3>
-                    <p style="color: #9ca3af; font-size: 0.9rem;">Watch how we perfectly profile the steel before coating.</p>
+                    <p style="color: #9ca3af; font-size: 0.95rem;">Watch how we perfectly profile the steel before coating to ensure a permanent bond.</p>
                 </div>
             </div>
-            <div>
-                <div class="video-placeholder"></div>
+            <div class="video-wrapper reveal" style="transition-delay: 0.2s;">
+                <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                    <div class="play-btn"></div>
+                </div>
                 <div class="video-info">
                     <h3>The Application</h3>
-                    <p style="color: #9ca3af; font-size: 0.9rem;">Flawless, textured protective coating applied at the exact required thickness.</p>
+                    <p style="color: #9ca3af; font-size: 0.95rem;">Flawless, textured protective coating applied precisely at the required mil thickness.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GHL Lead Form Placeholder -->
+    <!-- Sleek Lead Form -->
     <section id="quote" class="lead-section">
-        <div class="form-wrapper">
+        <div class="form-wrapper reveal">
             <h2>GET PRICING</h2>
-            <p>Fill out the form below and our Dallas-based team will contact you.</p>
+            <p>Fill out the form below and our Dallas-based team will contact you to spec your build.</p>
             <form id="ghl-form">
                 <div class="input-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="John Doe" required>
+                    <input type="text" id="name" placeholder=" " required>
+                    <label for="name">Full Name</label>
                 </div>
                 <div class="input-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="(555) 555-5555" required>
+                    <input type="tel" id="phone" placeholder=" " required>
+                    <label for="phone">Phone Number</label>
                 </div>
                 <div class="input-group">
-                    <label>Truck Make & Model</label>
-                    <input type="text" placeholder="e.g. 2023 Ford F-150" required>
+                    <input type="text" id="truck" placeholder=" " required>
+                    <label for="truck">Truck Make & Model</label>
                 </div>
-                <button type="submit" class="submit-btn">REQUEST QUOTE</button>
+                <button type="submit" class="btn submit-btn">REQUEST QUOTE</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 <span>Blackhawk Protective Coating</span>. Built for extreme durability.</p>
+        <div class="footer-logo">Blackhawk<span>.</span></div>
+        <p>&copy; 2026 Blackhawk Protective Coating. Built for extreme durability.</p>
     </footer>
 
+    <!-- Interactive Scroll Animation Logic -->
+    <script>
+        // This tiny script watches elements as you scroll and fades them in smoothly.
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, {
+                rootMargin: "0px 0px -50px 0px", // Triggers slightly before element enters view
+                threshold: 0.1
+            });
+
+            reveals.forEach(reveal => {
+                // Skip the hero section as we want it visible immediately
+                if (!reveal.classList.contains('active')) {
+                    revealObserver.observe(reveal);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
