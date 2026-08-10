@@ -3,287 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackhawk Protective Coating | Premium Truck Bedliners</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Base & Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f3f4f6; line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, .logo { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-        a { text-decoration: none; color: inherit; }
-
-        /* Variables */
-        :root {
-            --primary: #FF5A1F; 
-            --primary-hover: #e04a15;
-            --dark-bg: #0a0a0a;
-            --card-bg: #111111;
-            --border: #222;
-        }
-
-        /* Glassmorphism Navigation */
-        nav { 
-            display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; 
-            position: fixed; width: 100%; top: 0; z-index: 100; 
-            background: rgba(5, 5, 5, 0.7); 
-            backdrop-filter: blur(12px); /* Sleek blur effect */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-        .logo { font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: 2px; }
-        .logo span { color: var(--primary); }
-        .nav-links a { margin-left: 35px; font-weight: 500; font-size: 0.9rem; color: #ccc; letter-spacing: 1px; transition: color 0.3s; text-transform: uppercase; }
-        .nav-links a:hover { color: var(--primary); }
-        
-        /* Rugged Button Style */
-        .btn {
-            background: var(--primary); color: #fff; font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 1.5px;
-            padding: 14px 28px; display: inline-block; cursor: pointer; border: none;
-            clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); /* Angled tactical corners */
-            transition: all 0.3s ease; position: relative;
-        }
-        .btn:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 90, 31, 0.2); }
-        .nav-cta { margin-left: 35px; }
-
-        /* Hero Section with Texture & Angle */
-        .hero { 
-            position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; 
-            padding: 0 20px; background: #000;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Rugged diagonal bottom cut */
-        }
-        
-        /* Tactical Dot Mesh Overlay */
-        .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        
-        .hero-video-wrapper { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1558509806-e7e0e7a2b0e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
-            animation: zoomInOut 20s infinite alternate; /* Subtle breathing effect */
-        }
-
-        @keyframes zoomInOut { from { transform: scale(1); } to { transform: scale(1.05); } }
-
-        .hero-content { position: relative; z-index: 3; max-width: 900px; padding-top: 50px; }
-        .hero-content h1 { font-size: 5rem; line-height: 1; margin-bottom: 20px; color: #fff; letter-spacing: 3px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        .hero-content p { font-size: 1.2rem; color: #ddd; margin-bottom: 40px; font-weight: 400; max-width: 700px; margin-left: auto; margin-right: auto; }
-
-        /* Features/Benefits - Interactive Cards */
-        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 120px 5%; background: var(--dark-bg); margin-top: -50px; }
-        .feature-card { 
-            background: var(--card-bg); padding: 50px 40px; 
-            border: 1px solid var(--border); border-bottom: 4px solid var(--primary);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative; overflow: hidden;
-        }
-        .feature-card:hover { transform: translateY(-10px); border-color: rgba(255, 90, 31, 0.5); box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
-        /* Interactive subtle shine effect on hover */
-        .feature-card::after {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0) 100%);
-            transform: rotate(45deg) translate(-100%, 100%); transition: all 0.6s ease;
-        }
-        .feature-card:hover::after { transform: rotate(45deg) translate(100%, -100%); }
-        .feature-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
-        .feature-card p { color: #9ca3af; font-size: 1rem; line-height: 1.7; }
-
-        /* Video Showcase */
-        .showcase { padding: 100px 5%; background: #050505; }
-        .showcase-header { text-align: center; margin-bottom: 60px; }
-        .showcase h2 { font-size: 3.5rem; color: #fff; display: inline-block; position: relative; }
-        .showcase h2::after { content: ''; display: block; width: 60%; height: 4px; background: var(--primary); margin: 10px auto 0; }
-        
-        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
-       .video-wrapper { position: relative; overflow: hidden; border: 1px solid var(--border); }
-        .video-placeholder { 
-            background: url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') center/cover; 
-            height: 300px; display: flex; align-items: center; justify-content: center; 
-            transition: transform 0.5s ease; cursor: pointer;
-        }
-        .video-wrapper:hover .video-placeholder { transform: scale(1.05); }
-        /* Play Button Overlay */
-        .play-btn { width: 70px; height: 70px; background: rgba(255, 90, 31, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: all 0.3s; }
-        .play-btn::after { content: '▶'; color: #fff; font-size: 1.5rem; margin-left: 5px; }
-        .video-wrapper:hover .play-btn { background: var(--primary); transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 90, 31, 0.5); }
-        .video-info { padding: 25px; background: var(--card-bg); position: relative; z-index: 3; }
-        .video-info h3 { font-size: 1.5rem; color: #fff; margin-bottom: 5px; }
-
-        /* Sleek Lead Form */
-        .lead-section { padding: 120px 5%; background: var(--dark-bg); display: flex; justify-content: center; position: relative; }
-        .form-wrapper { 
-            background: #0a0a0a; padding: 60px; width: 100%; max-width: 650px; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); position: relative; z-index: 2;
-        }
-        /* Tactical grid background behind form */
-        .form-wrapper::before {
-            content: ''; position: absolute; top: -10px; left: -10px; right: 10px; bottom: 10px;
-            border: 1px solid var(--primary); z-index: -1; opacity: 0.5;
-        }
-        
-        .form-wrapper h2 { font-size: 2.5rem; margin-bottom: 10px; text-align: center; }
-        .form-wrapper p { text-align: center; color: #9ca3af; margin-bottom: 40px; font-size: 1.1rem; }
-        
-        .input-group { margin-bottom: 25px; position: relative; }
-        .input-group input { 
-            width: 100%; padding: 18px 20px; background: rgba(255,255,255,0.03); 
-            border: none; border-bottom: 2px solid var(--border); 
-            color: #fff; font-family: inherit; font-size: 1rem; transition: all 0.3s;
-        }
-        .input-group input:focus { outline: none; background: rgba(255,255,255,0.05); border-bottom-color: var(--primary); }
-        /* Floating Labels effect */
-        .input-group label { 
-            position: absolute; top: 18px; left: 20px; color: #666; pointer-events: none; transition: 0.3s ease all; font-weight: 500; 
-        }
-        .input-group input:focus ~ label, .input-group input:not(:placeholder-shown) ~ label {
-            top: -10px; left: 0; font-size: 0.85rem; color: var(--primary);
-        }
-        
-        .submit-btn { width: 100%; margin-top: 15px; font-size: 1.3rem; }
-
-        /* Footer */
-        footer { background: #000; padding: 60px 5% 40px; text-align: center; border-top: 1px solid #1a1a1a; }
-        .footer-logo { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
-        .footer-logo span { color: var(--primary); }
-        footer p { color: #555; font-size: 0.95rem; }
-
-        /* Scroll Reveal Animation Classes */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3.5rem; }
-            .nav-links, .nav-cta { display: none; } /* Add a hamburger menu later */
-            .hero { clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
-            .form-wrapper { padding: 40px 20px; }
-        }
-    </style>
+    <meta name="description" content="Blackhawk Protective Coatings - Premium spray-in truck bedliners, rust-proof undercoating, off-road armor, and commercial fleet solutions in Euless, TX.">
+    <title>Blackhawk Protective Coatings | Premium Spray-in Truck Bedliners & Armor</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Blackhawk<span>.</span></div>
-        <div class="nav-links">
-            <a href="#services">Bedliners</a>
-            <a href="#process">Our Process</a>
-            <a href="#videos">Gallery</a>
-        </div>
-        <a href="#quote" class="btn nav-cta">GET A QUOTE</a>
-    </nav>
+    <!-- ================= NAVIGATION HEADER ================= -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand-logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                BLACKHAWK <span class="text-accent">PROTECTIVE</span>
+            </a>
 
-    <!-- Hero Section -->
-    <section class="hero reveal active">
-        <div class="hero-video-wrapper"></div>
-        <div class="hero-content">
-            <h1>BULLETPROOF YOUR TRUCK BED.</h1>
-            <p>Dallas's trusted veteran-owned experts in high-performance protective coatings. Zero warping, maximum durability, and a flawless finish that outlasts your truck.</p>
-            <a href="#quote" class="btn" style="font-size: 1.3rem; padding: 18px 40px;">BOOK YOUR BEDLINER</a>
-        </div>
-    </section>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services & Finishes</a></li>
+                <li><a href="quote.html" class="nav-link">Get a Quote</a></li>
+            </ul>
 
-    <!-- Core Features -->
-    <section id="services" class="features">
-        <div class="feature-card reveal">
-            <h3>Veteran-Owned Precision</h3>
-            <p>We bring military-grade attention to detail to every application. We prep thoroughly, mask perfectly, and coat evenly. No shortcuts.</p>
+            <div class="nav-cta">
+                <a href="tel:2145550142" class="btn btn-phone">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Call Now: (214) 555-0142
+                </a>
+                <a href="quote.html" class="btn btn-primary">Free Quote</a>
+                <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+            </div>
         </div>
-        <div class="feature-card reveal" style="transition-delay: 0.1s;">
-            <h3>Zero Warping Guarantee</h3>
-            <p>Our surface prep technology completely eliminates the friction and heat that can warp thin automotive metals, preserving your vehicle's structural integrity.</p>
-        </div>
-        <div class="feature-card reveal" style="transition-delay: 0.2s;">
-            <h3>Extreme Weather Tech</h3>
-            <p>Serving the entire North Texas area. We provide professional-grade protective coatings chemically engineered to withstand extreme Texas heat and UV rays.</p>
-        </div>
-    </section>
+    </header>
 
-    <!-- Video Showcase -->
-    <section id="videos" class="showcase">
-        <div class="showcase-header reveal">
-            <h2>SEE THE ARMOR IN ACTION</h2>
-        </div>
-        <div class="showcase-grid">
-            <div class="video-wrapper reveal">
-                <div class="video-placeholder">
-                    <div class="play-btn"></div>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                    Military-Grade Polyurea Protection
                 </div>
-                <div class="video-info">
-                    <h3>The Prep Process</h3>
-                    <p style="color: #9ca3af; font-size: 0.95rem;">Watch how we perfectly profile the steel before coating to ensure a permanent bond.</p>
+                <h1>TOUGH-AS-NAILS PROTECTION FOR YOUR TRUCK & FLEET</h1>
+                <p>Heavy-duty, custom textured spray-in bedliners, undercoating, and body armor engineered to withstand intense impacts, harsh weather, and chemical corrosion.</p>
+                <div class="hero-actions">
+                    <a href="quote.html" class="btn btn-primary">Get a Fast Quote</a>
+                    <a href="services.html" class="btn btn-outline">Explore Services</a>
                 </div>
             </div>
-            <div class="video-wrapper reveal" style="transition-delay: 0.2s;">
-                <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
-                    <div class="play-btn"></div>
-                </div>
-                <div class="video-info">
-                    <h3>The Application</h3>
-                    <p style="color: #9ca3af; font-size: 0.95rem;">Flawless, textured protective coating applied precisely at the required mil thickness.</p>
-                </div>
+            <div class="hero-image-wrap">
+                <img src="assets/bedliner_after.jpg" alt="Blackhawk Textured Spray-in Bedliner Coating">
             </div>
         </div>
     </section>
 
-    <!-- Sleek Lead Form -->
-    <section id="quote" class="lead-section">
-        <div class="form-wrapper reveal">
-            <h2>GET PRICING</h2>
-            <p>Fill out the form below and our Dallas-based team will contact you to spec your build.</p>
-            <form id="ghl-form">
-                <div class="input-group">
-                    <input type="text" id="name" placeholder=" " required>
-                    <label for="name">Full Name</label>
-                </div>
-                <div class="input-group">
-                    <input type="tel" id="phone" placeholder=" " required>
-                    <label for="phone">Phone Number</label>
-                </div>
-                <div class="input-group">
-                    <input type="text" id="truck" placeholder=" " required>
-                    <label for="truck">Truck Make & Model</label>
-                </div>
-                <button type="submit" class="btn submit-btn">REQUEST QUOTE</button>
-            </form>
+    <!-- ================= STATS BAR ================= -->
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">640+</div>
+                <div class="stat-label">Trucks Coated</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10 YR</div>
+                <div class="stat-label">Warranty Included</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24 HR</div>
+                <div class="stat-label">Rapid Cure Time</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Certified Techs</div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ================= INTERACTIVE BEFORE / AFTER SLIDER ================= -->
+    <section class="section-padding ba-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>SEE THE BLACKHAWK TRANSFORMATIONS</h2>
+                <p>Drag the slider below to compare a scratched, factory truck bed against our heavy-duty black polyurea spray-in liner finish.</p>
+            </div>
+
+            <div class="ba-slider-container">
+                <div class="ba-img before"></div>
+                <div class="ba-badge before-badge">UNPROTECTED BED</div>
+                <div class="ba-img after"></div>
+                <div class="ba-badge after-badge">BLACKHAWK COATED</div>
+                <div class="ba-handle">
+                    <div class="ba-handle-button">↔</div>
+                </div>
+                <input type="range" min="0" max="100" value="50" class="ba-input-range" aria-label="Before and after slider">
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= QUICK SERVICES OVERVIEW ================= -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>OUR PROTECTIVE SOLUTIONS</h2>
+                <p>Engineered for personal work trucks, off-road builds, and commercial fleet vehicles.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="card">
+                    <div>
+                        <div class="card-icon">🛻</div>
+                        <h3>Spray-in Bedliners</h3>
+                        <p>Impervious polyurea coating bonded directly to your truck bed floor and rails to prevent rust, slippage, and impact dents.</p>
+                    </div>
+                    <a href="services.html#bedliner" class="card-link">View Details →</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-icon">🛡️</div>
+                        <h3>Rust-Proof Undercoating</h3>
+                        <p>Complete chassis and underbody protection barrier against road salts, humidity, mud, and harsh environmental corrosion.</p>
+                    </div>
+                    <a href="services.html#undercoating" class="card-link">View Details →</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-icon">⛰️</div>
+                        <h3>Off-Road Armor</h3>
+                        <p>High-tensile protective coating for rock sliders, custom bumpers, fender flares, and full exterior body armor paneling.</p>
+                    </div>
+                    <a href="services.html#offroad" class="card-link">View Details →</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-icon">🚛</div>
+                        <h3>Fleet Solutions</h3>
+                        <p>Bulk coating programs for utility fleets, work vans, construction trucks, and heavy commercial equipment.</p>
+                    </div>
+                    <a href="services.html#fleet" class="card-link">View Details →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section class="section-padding" style="background: var(--bg-card);">
+        <div class="container">
+            <div class="section-header">
+                <h2>WHAT OUR CLIENTS SAY</h2>
+                <p>Trusted by local truck owners, fleet managers, and off-road enthusiasts across North Texas.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Blackhawk coated my 2024 Ford F-250 bed and rocker panels. The texture is unbelievable and nothing slides around back there anymore. Solid work!"</p>
+                    <div class="client-info">
+                        <h4>Marcus Vance</h4>
+                        <span>Owner, Vance Construction</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"We brought our 8 fleet utility vans in for chassis undercoating and interior bed protection. Fast 24-hour turnaround and immaculate finish."</p>
+                    <div class="client-info">
+                        <h4>Sarah Jenkins</h4>
+                        <span>Fleet Director, Apex Electric</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Got custom gunmetal gray coating on my Jeep Gladiator bumpers and fenders. Absolutely tough as steel. Highly recommend the Euless team!"</p>
+                    <div class="client-info">
+                        <h4>Derek Reynolds</h4>
+                        <span>Off-Road Enthusiast</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
     <footer>
-        <div class="footer-logo">Blackhawk<span>.</span></div>
-        <p>&copy; 2026 Blackhawk Protective Coating. Built for extreme durability.</p>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand-logo">
+                    BLACKHAWK <span class="text-accent">PROTECTIVE</span>
+                </a>
+                <p>North Texas' premier industrial protective coating facility. Specializing in polyurethane & polyurea spray applications for trucks, fleets, and heavy armor.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services & Finishes</a></li>
+                    <li><a href="quote.html">Get a Free Quote</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html#bedliner">Spray-in Bedliners</a></li>
+                    <li><a href="services.html#undercoating">Chassis Undercoating</a></li>
+                    <li><a href="services.html#offroad">Off-Road Armor</a></li>
+                    <li><a href="services.html#fleet">Fleet Solutions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Shop Info</h4>
+                <ul class="footer-links">
+                    <li><strong>Phone:</strong> (214) 555-0142</li>
+                    <li><strong>Address:</strong> 4820 Industrial Blvd, Euless, TX 76040</li>
+                    <li><strong>Hours:</strong> Mon–Fri 7:30a–6p · Sat 8a–2p</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Blackhawk Protective Coatings. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Interactive Scroll Animation Logic -->
-    <script>
-        // This tiny script watches elements as you scroll and fades them in smoothly.
-        document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
-            
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // Only animate once
-                    }
-                });
-            }, {
-                rootMargin: "0px 0px -50px 0px", // Triggers slightly before element enters view
-                threshold: 0.1
-            });
-
-            reveals.forEach(reveal => {
-                // Skip the hero section as we want it visible immediately
-                if (!reveal.classList.contains('active')) {
-                    revealObserver.observe(reveal);
-                }
-            });
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="js/app.js" defer></script>
 </body>
 </html>

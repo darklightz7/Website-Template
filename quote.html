@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request a free custom quote for spray-in bedliners, undercoating, or fleet protection from Blackhawk Protective Coatings in Euless, TX.">
+    <title>Get a Free Quote | Blackhawk Protective Coatings</title>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= NAVIGATION HEADER ================= -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="brand-logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                BLACKHAWK <span class="text-accent">PROTECTIVE</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services & Finishes</a></li>
+                <li><a href="quote.html" class="nav-link active">Get a Quote</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="tel:2145550142" class="btn btn-phone">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Call Now: (214) 555-0142
+                </a>
+                <a href="quote.html" class="btn btn-primary">Free Quote</a>
+                <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= PAGE HERO ================= -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>REQUEST A FREE CUSTOM QUOTE</h1>
+            <p>Fill out the form below for a rapid estimate. Most quotes are delivered within 2 business hours!</p>
+        </div>
+    </section>
+
+    <!-- ================= QUOTE FORM SECTION ================= -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="quote-layout">
+                
+                <!-- Main Quote Form -->
+                <div class="quote-form-wrap">
+                    
+                    <div id="form-success" class="form-success-message">
+                        ✓ Thank you! Your quote request has been submitted successfully. Our Euless shop team will reach out shortly!
+                    </div>
+
+                    <form id="quote-form">
+                        
+                        <!-- Contact Details -->
+                        <div class="form-group">
+                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">1. Contact Details</h3>
+                            <div class="form-row-3">
+                                <div>
+                                    <label for="full-name">Full Name *</label>
+                                    <input type="text" id="full-name" name="name" placeholder="John Doe" required>
+                                </div>
+                                <div>
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="(214) 555-0199" required>
+                                </div>
+                                <div>
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Information -->
+                        <div class="form-group">
+                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">2. Vehicle Details</h3>
+                            <div class="form-row-3">
+                                <div>
+                                    <label for="veh-year">Vehicle Year *</label>
+                                    <input type="text" id="veh-year" name="year" placeholder="e.g. 2024" required>
+                                </div>
+                                <div>
+                                    <label for="veh-make">Make *</label>
+                                    <input type="text" id="veh-make" name="make" placeholder="e.g. Ford, Chevy, RAM" required>
+                                </div>
+                                <div>
+                                    <label for="veh-model">Model *</label>
+                                    <input type="text" id="veh-model" name="model" placeholder="e.g. F-150, Silverado 2500" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Service Checklist -->
+                        <div class="form-group">
+                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">3. Service Checklist</h3>
+                            <div class="checkbox-group">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="services" value="bedliner" checked>
+                                    <span>Spray-In Bedliner</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="services" value="undercoating">
+                                    <span>Rust-Proof Undercoating</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="services" value="offroad">
+                                    <span>Off-Road Armor Coating</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="services" value="fleet">
+                                    <span>Commercial Fleet Package</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Preferred Color -->
+                        <div class="form-group">
+                            <label for="color-choice">Preferred Color & Texture Finish</label>
+                            <select id="color-choice" name="color">
+                                <option value="matte-black">Matte Black (Standard Heavy Texture)</option>
+                                <option value="gunmetal">Gunmetal Gray (Tactical)</option>
+                                <option value="desert-tan">Desert Tan</option>
+                                <option value="battleship-gray">Battleship Gray</option>
+                                <option value="tactical-olive">Tactical Olive</option>
+                                <option value="custom-match">Custom OEM Color Match</option>
+                            </select>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div class="form-group">
+                            <label for="notes">Additional Project Details / Requirements</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Let us know if you need rail coverage, bumper sprays, or specific turnaround deadlines..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem;">
+                            Submit Request
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sidebar Contact Details -->
+                <div class="quote-sidebar">
+                    
+                    <div class="sidebar-card">
+                        <h3>Euless Shop Facility</h3>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-text">
+                                <h5>Shop Address</h5>
+                                <p>4820 Industrial Blvd<br>Euless, TX 76040</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-text">
+                                <h5>Direct Phone</h5>
+                                <p>(214) 555-0142</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">⏰</div>
+                            <div class="info-text">
+                                <h5>Operating Hours</h5>
+                                <p>Mon–Fri: 7:30 AM – 6:00 PM<br>Sat: 8:00 AM – 2:00 PM<br>Sun: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>The Blackhawk Guarantee</h3>
+                        <ul class="specs-list" style="margin-bottom: 0;">
+                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 10-Year Transferable Warranty</li>
+                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Certified Master Technicians</li>
+                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Same-Day Drop Off Available</li>
+                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Free In-Person Inspections</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand-logo">
+                    BLACKHAWK <span class="text-accent">PROTECTIVE</span>
+                </a>
+                <p>North Texas' premier industrial protective coating facility. Specializing in polyurethane & polyurea spray applications for trucks, fleets, and heavy armor.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services & Finishes</a></li>
+                    <li><a href="quote.html">Get a Free Quote</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html#bedliner">Spray-in Bedliners</a></li>
+                    <li><a href="services.html#undercoating">Chassis Undercoating</a></li>
+                    <li><a href="services.html#offroad">Off-Road Armor</a></li>
+                    <li><a href="services.html#fleet">Fleet Solutions</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Shop Info</h4>
+                <ul class="footer-links">
+                    <li><strong>Phone:</strong> (214) 555-0142</li>
+                    <li><strong>Address:</strong> 4820 Industrial Blvd, Euless, TX 76040</li>
+                    <li><strong>Hours:</strong> Mon–Fri 7:30a–6p · Sat 8a–2p</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Blackhawk Protective Coatings. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/app.js" defer></script>
+</body>
+</html>
