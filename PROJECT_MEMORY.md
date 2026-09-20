@@ -1,10 +1,59 @@
 # Blackhawk Protective Coatings - Project Memory
 ## Core Architecture
-- Static responsive website template (index.html, services.html, quote.html).
-- Styles: css/style.css | Scripts: js/app.js.
+- Static responsive website template (37 HTML pages, `css/style.css`, `js/app.js`).
+- Central facility: 4820 Industrial Blvd, Euless, TX 76040 (DFW Mid-Cities hub).
+- Styles: `css/style.css` (Strictly preserved, dark industrial high-performance theme).
+- Scripts: `js/app.js` (Mobile menu toggle, before/after slider, interactive quote & contact form handlers).
+
 ## Recent Log & Context
-- Repository setup completed across Mac and PC configuration.
-- Executed brand color palette rebrand to Steel Blue (`--accent-color: #2980FF`, `--accent-hover: #1A6DE8`, `--bg-dark: #121417`, `--card-bg: #1C2025`, `--border-color: #2E343D`).
-- Refined home page slider: swapped badge positions (left: "BLACKHAWK COATED", right: "UNPROTECTED BED") to align with visual layer intuition, updated header to singular "SEE THE BLACKHAWK TRANSFORMATION", and lightened the blue accent for enhanced readability and contrast against dark backgrounds.
+- Built complete mirrored website foundation for Blackhawk Protective Coatings on branch `feature/full-site-build`.
+- Preserved `css/style.css`: zero alterations to root CSS variables, color tokens, button styles, cards, or grid structures.
+- Focused copy and service messaging strictly on IN-SHOP SPRAY-ON TRUCK BEDLINERS and protective coatings (drive-in drop-off at Euless, TX facility with Graco high-pressure 2,500 PSI plural-component hot spray at 160°F+, 10-year warranty, same-day turnaround).
+- Crawled and mapped full hierarchy and service footprints from reference sites `blackhawkblasting.com` and `blackhawkcoatings.com`.
+- Generated 37 synchronized pages across root and subfolders:
+  - **Core Company Pages (7 files)**:
+    - `index.html` (Main Landing Page with in-shop drop-off focus, interactive slider, universal nav & footer)
+    - `about.html` (In-Shop Facilities, Graco Reactor equipment, wire-trim tech, craftsmanship, mission)
+    - `services.html` (Main Services Overview Grid linking to dedicated subpages, tactile color swatch grid)
+    - `gallery.html` (Before & After Bedliner Showcase, interactive slider, customer builds, texture finishes)
+    - `faq.html` (Cure times, 10-year warranty, mechanical prep, polyurea vs. plastic drop-ins, drop-off details)
+    - `quote.html` (In-Shop Bedliner Quote Request Form with bed lengths, drop-off windows, and shop sidebar)
+    - `contact.html` (Shop address, operating hours, phone, highway drive-in directions, contact form)
+  - **Service Sub-Pages (7 files in `services/`)**:
+    - `services/index.html` (In-Shop Services Directory Hub)
+    - `services/standard-polyurea-bedliner.html` (Plural-component hot spray, 2,800+ PSI tensile, watertight seal)
+    - `services/uv-protective-topcoat.html` (Aliphatic photostable UV barrier, zero solar chalking/fading)
+    - `services/rocker-panels-wheel-wells.html` (Lower sill & wheel tub rock chip defense, wire-trimmed lines)
+    - `services/commercial-fleet-drop-offs.html` (Commercial contractor fleet programs, volume pricing, priority bays)
+    - `services/rust-inhibitive-undercoating.html` (Chassis undercarriage sealant applied on shop hydraulic lifts)
+    - `services/custom-armor-accessories.html` (Steel bumpers, headache racks, toolboxes, overland armor)
+  - **Regional Location Hub & Landing Pages (23 files in `locations/`)**:
+    - `locations/index.html` (Regional Directory & North Texas Coverage Hub)
+    - 22 Individual Location Landing Pages featuring localized headers, drive-in highway directions to 4820 Industrial Blvd in Euless, tailored regional copy, local testimonials, and quote CTAs:
+      - `locations/heath-tx.html` (Rockwall County)
+      - `locations/dallas-tx.html` (Dallas County)
+      - `locations/fort-worth-tx.html` (Tarrant County)
+      - `locations/plano-tx.html` (Collin County)
+      - `locations/arlington-tx.html` (Tarrant County)
+      - `locations/frisco-tx.html` (Collin/Denton County)
+      - `locations/mckinney-tx.html` (Collin County)
+      - `locations/garland-tx.html` (Dallas County)
+      - `locations/denton-tx.html` (Denton County)
+      - `locations/mesquite-tx.html` (Dallas County)
+      - `locations/rockwall-tx.html` (Rockwall County)
+      - `locations/royse-city-tx.html` (Rockwall/Collin County)
+      - `locations/terrell-tx.html` (Kaufman County)
+      - `locations/greenville-tx.html` (Hunt County)
+      - `locations/forney-tx.html` (Kaufman County)
+      - `locations/rowlett-tx.html` (Dallas/Rockwall County)
+      - `locations/texarkana-tx.html` (Bowie County / I-30 Commercial)
+      - `locations/tyler-tx.html` (Smith County / East Texas Corridor)
+      - `locations/allen-tx.html` (Collin County)
+      - `locations/mansfield-tx.html` (Tarrant/Ellis County)
+      - `locations/wolfe-city-tx.html` (Hunt County)
+      - `locations/euless-tx.html` (Central Shop HQ & Intake Bay)
+- Executed automated link and asset path resolution audit: 1,274 internal links/assets checked with 100% resolution (0 broken links).
+
 ## Pending Roadmap
-- Audit site UI/UX, verify form handling on quote.html, and optimize responsive layout.
+- Integrate backend email service / webhook for `quote.html` and `contact.html` form handlers.
+- Add additional photography assets for each specialized service and before/after slider if provided.

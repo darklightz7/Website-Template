@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Request a free custom quote for spray-in bedliners, undercoating, or fleet protection from Blackhawk Protective Coatings in Euless, TX.">
-    <title>Get a Free Quote | Blackhawk Protective Coatings</title>
+    <meta name="description" content="Request an in-shop spray-on truck bedliner quote from Blackhawk Protective Coatings in Euless, TX. Fast estimates, custom textures, UV options, and commercial fleet packages.">
+    <title>Get an In-Shop Bedliner Quote | Blackhawk Protective Coatings | Euless, TX</title>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,16 +22,20 @@
 
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services & Finishes</a></li>
-                <li><a href="quote.html" class="nav-link active">Get a Quote</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="locations/index.html" class="nav-link">Locations</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
 
             <div class="nav-cta">
                 <a href="tel:2145550142" class="btn btn-phone">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    Call Now: (214) 555-0142
+                    (214) 555-0142
                 </a>
-                <a href="quote.html" class="btn btn-primary">Free Quote</a>
+                <a href="quote.html" class="btn btn-primary active">Free Quote</a>
                 <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
             </div>
         </div>
@@ -40,8 +44,9 @@
     <!-- ================= PAGE HERO ================= -->
     <section class="page-hero">
         <div class="container">
-            <h1>REQUEST A FREE CUSTOM QUOTE</h1>
-            <p>Fill out the form below for a rapid estimate. Most quotes are delivered within 2 business hours!</p>
+            <div class="hero-tag">In-Shop Bedliner & Armor Estimate</div>
+            <h1>REQUEST AN IN-SHOP BEDLINER QUOTE</h1>
+            <p>Fill out the form below to receive a fast, customized estimate. Most estimates are delivered within 2 business hours!</p>
         </div>
     </section>
 
@@ -54,7 +59,7 @@
                 <div class="quote-form-wrap">
                     
                     <div id="form-success" class="form-success-message">
-                        ✓ Thank you! Your quote request has been submitted successfully. Our Euless shop team will reach out shortly!
+                        ✓ Thank you! Your in-shop quote request has been submitted successfully. Our Euless shop team will reach out within 2 business hours!
                     </div>
 
                     <form id="quote-form">
@@ -78,9 +83,9 @@
                             </div>
                         </div>
 
-                        <!-- Vehicle Information -->
+                        <!-- Vehicle & Bed Details -->
                         <div class="form-group">
-                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">2. Vehicle Details</h3>
+                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">2. Vehicle & Bed Dimensions</h3>
                             <div class="form-row-3">
                                 <div>
                                     <label for="veh-year">Vehicle Year *</label>
@@ -88,105 +93,146 @@
                                 </div>
                                 <div>
                                     <label for="veh-make">Make *</label>
-                                    <input type="text" id="veh-make" name="make" placeholder="e.g. Ford, Chevy, RAM" required>
+                                    <input type="text" id="veh-make" name="make" placeholder="e.g. Ford, Chevy, RAM, GMC" required>
                                 </div>
                                 <div>
                                     <label for="veh-model">Model *</label>
                                     <input type="text" id="veh-model" name="model" placeholder="e.g. F-150, Silverado 2500" required>
                                 </div>
                             </div>
+                            <div class="form-row" style="margin-top: 16px;">
+                                <div>
+                                    <label for="bed-length">Bed Length / Configuration *</label>
+                                    <select id="bed-length" name="bed_length" required>
+                                        <option value="5.5ft">Short Bed (5.5 ft to 5.8 ft)</option>
+                                        <option value="6.5ft" selected>Standard Bed (6.5 ft)</option>
+                                        <option value="8ft">Long Bed (8.0 ft)</option>
+                                        <option value="dually">8.0 ft Dually Bed</option>
+                                        <option value="utility_flatbed">Commercial Utility Body / Flatbed</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="rail-coverage">Bed Rail Coverage *</label>
+                                    <select id="rail-coverage" name="rail_coverage" required>
+                                        <option value="under-rail" selected>Under-the-Rail (Preserves plastic factory caps)</option>
+                                        <option value="over-rail">Over-the-Rail (Full rail top encapsulation)</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Service Checklist -->
+                        <!-- In-Shop Service Checklist -->
                         <div class="form-group">
-                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">3. Service Checklist</h3>
+                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">3. In-Shop Services Desired</h3>
                             <div class="checkbox-group">
                                 <label class="custom-checkbox">
                                     <input type="checkbox" name="services" value="bedliner" checked>
-                                    <span>Spray-In Bedliner</span>
+                                    <span>High-Pressure Spray-On Bedliner</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="services" value="uv_topcoat">
+                                    <span>UV Premium Protective Topcoat</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="services" value="rocker_panels">
+                                    <span>Rocker Panels & Cab Corners</span>
+                                </label>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="services" value="wheel_wells">
+                                    <span>Inner Wheel Wells</span>
                                 </label>
                                 <label class="custom-checkbox">
                                     <input type="checkbox" name="services" value="undercoating">
-                                    <span>Rust-Proof Undercoating</span>
-                                </label>
-                                <label class="custom-checkbox">
-                                    <input type="checkbox" name="services" value="offroad">
-                                    <span>Off-Road Armor Coating</span>
+                                    <span>Chassis Rust-Proof Undercoating</span>
                                 </label>
                                 <label class="custom-checkbox">
                                     <input type="checkbox" name="services" value="fleet">
-                                    <span>Commercial Fleet Package</span>
+                                    <span>Commercial Fleet Drop-Off Package</span>
                                 </label>
                             </div>
                         </div>
 
-                        <!-- Preferred Color -->
+                        <!-- Drop-Off Preference & Notes -->
                         <div class="form-group">
-                            <label for="color-choice">Preferred Color & Texture Finish</label>
-                            <select id="color-choice" name="color">
-                                <option value="matte-black">Matte Black (Standard Heavy Texture)</option>
-                                <option value="gunmetal">Gunmetal Gray (Tactical)</option>
-                                <option value="desert-tan">Desert Tan</option>
-                                <option value="battleship-gray">Battleship Gray</option>
-                                <option value="tactical-olive">Tactical Olive</option>
-                                <option value="custom-match">Custom OEM Color Match</option>
-                            </select>
+                            <h3 style="margin-bottom: 16px; font-size: 1.2rem; color: var(--accent);">4. Drop-Off Window & Notes</h3>
+                            <div class="form-row">
+                                <div>
+                                    <label for="drop-time">Preferred Drop-Off Time</label>
+                                    <select id="drop-time" name="drop_time">
+                                        <option value="morning">Morning Drop-Off (7:30 AM - 9:00 AM)</option>
+                                        <option value="midday">Midday Drop-Off (11:30 AM - 1:00 PM)</option>
+                                        <option value="early-bird">Early Bird Key Drop (Before 7:30 AM)</option>
+                                        <option value="saturday">Saturday Slot (8:00 AM - 12:00 PM)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="location-origin">Your City / Origin</label>
+                                    <input type="text" id="location-origin" name="origin_city" placeholder="e.g. Euless, Dallas, Fort Worth, Heath">
+                                </div>
+                            </div>
+                            <div style="margin-top: 16px;">
+                                <label for="notes">Additional Vehicle Notes or Custom Requests</label>
+                                <textarea id="notes" name="notes" rows="4" placeholder="Mention any existing spray-in liners, aftermarket fifth-wheel hitches, toolboxes, or specific texture preferences..."></textarea>
+                            </div>
                         </div>
 
-                        <!-- Additional Notes -->
-                        <div class="form-group">
-                            <label for="notes">Additional Project Details / Requirements</label>
-                            <textarea id="notes" name="notes" rows="4" placeholder="Let us know if you need rail coverage, bumper sprays, or specific turnaround deadlines..."></textarea>
-                        </div>
-
-                        <!-- Submit Button -->
                         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem;">
-                            Submit Request
+                            Submit In-Shop Quote Request
                         </button>
                     </form>
                 </div>
 
-                <!-- Sidebar Contact Details -->
-                <div class="quote-sidebar">
-                    
+                <!-- Sidebar Shop Info -->
+                <div class="sidebar">
                     <div class="sidebar-card">
-                        <h3>Euless Shop Facility</h3>
-                        
+                        <h3>Shop Drop-Off Center</h3>
                         <div class="info-item">
                             <div class="info-icon">📍</div>
                             <div class="info-text">
-                                <h5>Shop Address</h5>
+                                <h5>Facility Address</h5>
                                 <p>4820 Industrial Blvd<br>Euless, TX 76040</p>
                             </div>
                         </div>
-
+                        <div class="info-item">
+                            <div class="info-icon">⏱️</div>
+                            <div class="info-text">
+                                <h5>Shop Hours</h5>
+                                <p>Mon–Fri: 7:30 AM – 6:00 PM<br>Sat: 8:00 AM – 2:00 PM</p>
+                            </div>
+                        </div>
                         <div class="info-item">
                             <div class="info-icon">📞</div>
                             <div class="info-text">
-                                <h5>Direct Phone</h5>
-                                <p>(214) 555-0142</p>
-                            </div>
-                        </div>
-
-                        <div class="info-item">
-                            <div class="info-icon">⏰</div>
-                            <div class="info-text">
-                                <h5>Operating Hours</h5>
-                                <p>Mon–Fri: 7:30 AM – 6:00 PM<br>Sat: 8:00 AM – 2:00 PM<br>Sun: Closed</p>
+                                <h5>Phone Support</h5>
+                                <p><a href="tel:2145550142" style="color: var(--accent); font-weight: 700;">(214) 555-0142</a></p>
                             </div>
                         </div>
                     </div>
 
                     <div class="sidebar-card">
                         <h3>The Blackhawk Guarantee</h3>
-                        <ul class="specs-list" style="margin-bottom: 0;">
-                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 10-Year Transferable Warranty</li>
-                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Certified Master Technicians</li>
-                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Same-Day Drop Off Available</li>
-                            <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Free In-Person Inspections</li>
-                        </ul>
+                        <div class="info-item">
+                            <div class="info-icon">🛡️</div>
+                            <div class="info-text">
+                                <h5>10-Year Warranty</h5>
+                                <p>Transferable nationwide protection against peeling, bubbling, and delamination.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">⚡</div>
+                            <div class="info-text">
+                                <h5>Same-Day Turnaround</h5>
+                                <p>Drop off in the morning, drive home protected that afternoon.</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🎯</div>
+                            <div class="info-text">
+                                <h5>Zero Paint Scoring</h5>
+                                <p>Precision carbon-filament Wire-Trim tape guarantees clean factory edges.</p>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
 
             </div>
@@ -200,40 +246,49 @@
                 <a href="index.html" class="brand-logo">
                     BLACKHAWK <span class="text-accent">PROTECTIVE</span>
                 </a>
-                <p>North Texas' premier industrial protective coating facility. Specializing in polyurethane & polyurea spray applications for trucks, fleets, and heavy armor.</p>
+                <p>North Texas' premier in-shop spray-on truck bedliner & protective coating facility. Drive-in drop-off center in Euless, TX serving the entire DFW Metroplex & North Texas.</p>
             </div>
 
             <div class="footer-col">
                 <h4>Navigation</h4>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services & Finishes</a></li>
-                    <li><a href="quote.html">Get a Free Quote</a></li>
+                    <li><a href="services.html">All Services</a></li>
+                    <li><a href="gallery.html">Before & After Gallery</a></li>
+                    <li><a href="locations/index.html">Service Locations</a></li>
+                    <li><a href="about.html">About Our Shop</a></li>
+                    <li><a href="faq.html">Bedliner FAQ</a></li>
+                    <li><a href="contact.html">Shop Directions</a></li>
+                    <li><a href="quote.html">Get In-Shop Quote</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h4>Services</h4>
+                <h4>In-Shop Services</h4>
                 <ul class="footer-links">
-                    <li><a href="services.html#bedliner">Spray-in Bedliners</a></li>
-                    <li><a href="services.html#undercoating">Chassis Undercoating</a></li>
-                    <li><a href="services.html#offroad">Off-Road Armor</a></li>
-                    <li><a href="services.html#fleet">Fleet Solutions</a></li>
+                    <li><a href="services/standard-polyurea-bedliner.html">Spray-In Bedliners</a></li>
+                    <li><a href="services/uv-protective-topcoat.html">UV Premium Topcoats</a></li>
+                    <li><a href="services/rocker-panels-wheel-wells.html">Rocker Panels & Wells</a></li>
+                    <li><a href="services/commercial-fleet-drop-offs.html">Commercial Fleet Drop-Off</a></li>
+                    <li><a href="services/rust-inhibitive-undercoating.html">Chassis Undercoating</a></li>
+                    <li><a href="services/custom-armor-accessories.html">Custom Truck Armor</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h4>Shop Info</h4>
+                <h4>Shop Location</h4>
                 <ul class="footer-links">
+                    <li><strong>Facility:</strong> 4820 Industrial Blvd, Euless, TX 76040</li>
                     <li><strong>Phone:</strong> (214) 555-0142</li>
-                    <li><strong>Address:</strong> 4820 Industrial Blvd, Euless, TX 76040</li>
-                    <li><strong>Hours:</strong> Mon–Fri 7:30a–6p · Sat 8a–2p</li>
+                    <li><strong>Hours:</strong> Mon–Fri 7:30a–6:00p · Sat 8:00a–2:00p</li>
+                    <li><strong>Drop-Off:</strong> Drive-in vehicle drop-off bay</li>
+                    <li><a href="quote.html" style="color: var(--accent); font-weight: 600;">Schedule In-Shop Drop-Off →</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Blackhawk Protective Coatings. All rights reserved.</p>
+            <p>&copy; 2026 Blackhawk Protective Coatings. All rights reserved. Professional In-Shop Polyurea & Protective Applications.</p>
         </div>
     </footer>
 
