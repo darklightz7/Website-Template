@@ -4,25 +4,95 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. MOBILE NAVIGATION TOGGLE ---
+    // --- 1. MOBILE NAVIGATION TOGGLE & ACCESSIBILITY ---
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
     if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        // Accessibility initialization
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.setAttribute('aria-controls', 'nav-menu');
+        if (!navMenu.id) navMenu.id = 'nav-menu';
+
+        const openMenu = () => {
+            navMenu.classList.add('active');
+            mobileToggle.classList.add('active');
+            mobileToggle.setAttribute('aria-expanded', 'true');
+            mobileToggle.innerHTML = '✕';
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeMenu = () => {
+            navMenu.classList.remove('active');
+            mobileToggle.classList.remove('active');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            mobileToggle.innerHTML = '☰';
+            document.body.style.overflow = '';
+        };
+
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             const isOpen = navMenu.classList.contains('active');
-            mobileToggle.setAttribute('aria-expanded', isOpen);
-            mobileToggle.innerHTML = isOpen ? '✕' : '☰';
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
 
-        // Close menu on link click
-        navMenu.querySelectorAll('.nav-link').forEach(link => {
+        // Close menu on any link click inside navMenu
+        navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                if (mobileToggle) mobileToggle.innerHTML = '☰';
+                closeMenu();
             });
         });
+
+        // Close menu on Escape key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
+                mobileToggle.focus();
+            }
+        });
+
+        // Close menu when clicking outside header & drawer
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Auto-close if screen resized to desktop viewport (> 1080px)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1080 && navMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Dynamically inject mobile drawer CTAs if not statically present
+        if (!navMenu.querySelector('.mobile-drawer-cta')) {
+            const drawerCta = document.createElement('li');
+            drawerCta.className = 'mobile-drawer-cta';
+
+            const phoneBtn = document.querySelector('.nav-cta .btn-phone');
+            const quoteBtn = document.querySelector('.nav-cta .btn-primary');
+
+            if (phoneBtn) {
+                const phoneClone = phoneBtn.cloneNode(true);
+                phoneClone.addEventListener('click', () => closeMenu());
+                drawerCta.appendChild(phoneClone);
+            }
+
+            if (quoteBtn) {
+                const quoteClone = quoteBtn.cloneNode(true);
+                quoteClone.addEventListener('click', () => closeMenu());
+                drawerCta.appendChild(quoteClone);
+            }
+
+            if (drawerCta.children.length > 0) {
+                navMenu.appendChild(drawerCta);
+            }
+        }
     }
 
     // --- 2. INTERACTIVE BEFORE/AFTER SLIDER LOGIC ---
