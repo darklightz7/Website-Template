@@ -87,9 +87,11 @@
   - **Link Verification**: 100% path resolution verified across all 43 HTML image references (0 broken links).
 
 - Deployed official Blackhawk Protective Coatings logo and migrated business facility address across all 37 pages:
-  - **Official Logo**:
-    - Stored uploaded master logo at `assets/logo.png`, emblem cut at `assets/logo-emblem.png`, transparent silhouette at `assets/logo-transparent.png`, and generated 32x32 browser tab icon at `assets/favicon-32x32.png`.
-    - Fully eradicated placeholder `<svg>` and `BLACKHAWK PROTECTIVE` text styling from all navigation headers and footers across the site.
+  - **Official Logo & Artistic Edge Refinement**:
+    - Preserved unedited master square logo at `assets/logo_original_square.png` (non-destructive backup).
+    - **Repaired Truncated "S" in "COATINGS"**: Reconstructed the cut-off right side and lower bowl of "S" (X=904..911, Y=758..797) by matching the typeface's native oblique curvature, ~7.5px stroke weight, and anti-aliased slate blue palette from "C" and "G".
+    - **Grunge / Industrial Splatter Edge**: Transformed `assets/logo.png` from a rigid solid black box into an organic polyurea spray / paint splatter edge with genuine alpha channel transparency, eliminating square boundary artifacts across any website background.
+    - **Feathered Emblem**: Generated matching feathered eagle and shield cutout at `assets/logo-emblem.png` (`925x570` RGBA).
     - Integrated responsive `.site-logo` (height `clamp(52px, 5vw, 66px)` desktop, down to 42px/36px on mobile) and `.footer-logo-img` (`max-width: 220px`).
     - Added `<link rel="icon" type="image/png" href="[prefix]assets/favicon-32x32.png">` across all 37 HTML `<head>` blocks.
   - **Facility Address Migration**:
@@ -104,3 +106,4 @@
 ## Pending Roadmap
 - Integrate backend email service / webhook for `quote.html` and `contact.html` form handlers.
 - When Gemini image generation quota resets, optionally generate additional outdoor fleet shots or overland accessories if desired.
+
