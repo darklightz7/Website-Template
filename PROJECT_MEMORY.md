@@ -1,14 +1,14 @@
 # Blackhawk Protective Coatings - Project Memory
 ## Core Architecture
 - Static responsive website template (37 HTML pages, `css/style.css`, `js/app.js`).
-- Central facility: 4820 Industrial Blvd, Euless, TX 76040 (DFW Mid-Cities hub).
+- Central facility: 4853 TX-276 Unit # 24, Royse City, TX 75189 (Rockwall County / East DFW hub).
 - Styles: `css/style.css` (Strictly preserved, dark industrial high-performance theme).
 - Scripts: `js/app.js` (Mobile menu toggle, before/after slider, interactive quote & contact form handlers).
 
 ## Recent Log & Context
 - Built complete mirrored website foundation for Blackhawk Protective Coatings on branch `feature/full-site-build`.
 - Preserved `css/style.css`: zero alterations to root CSS variables, color tokens, button styles, cards, or grid structures.
-- Focused copy and service messaging strictly on IN-SHOP SPRAY-ON TRUCK BEDLINERS and protective coatings (drive-in drop-off at Euless, TX facility with Graco high-pressure 2,500 PSI plural-component hot spray at 160°F+, 10-year warranty, same-day turnaround).
+- Focused copy and service messaging strictly on IN-SHOP SPRAY-ON TRUCK BEDLINERS and protective coatings (drive-in drop-off at 4853 TX-276 Unit # 24, Royse City, TX facility with Graco high-pressure 2,500 PSI plural-component hot spray at 160°F+, 10-year warranty, same-day turnaround).
 - Crawled and mapped full hierarchy and service footprints from reference sites `blackhawkblasting.com` and `blackhawkcoatings.com`.
 - Generated 37 synchronized pages across root and subfolders:
   - **Core Company Pages (7 files)**:
@@ -29,7 +29,7 @@
     - `services/custom-armor-accessories.html` (Steel bumpers, headache racks, toolboxes, overland armor)
   - **Regional Location Hub & Landing Pages (23 files in `locations/`)**:
     - `locations/index.html` (Regional Directory & North Texas Coverage Hub)
-    - 22 Individual Location Landing Pages featuring localized headers, drive-in highway directions to 4820 Industrial Blvd in Euless, tailored regional copy, local testimonials, and quote CTAs:
+    - 22 Individual Location Landing Pages featuring localized headers, drive-in highway directions to 4853 TX-276 Unit # 24 in Royse City, tailored regional copy, local testimonials, and quote CTAs:
       - `locations/heath-tx.html` (Rockwall County)
       - `locations/dallas-tx.html` (Dallas County)
       - `locations/fort-worth-tx.html` (Tarrant County)
@@ -41,7 +41,7 @@
       - `locations/denton-tx.html` (Denton County)
       - `locations/mesquite-tx.html` (Dallas County)
       - `locations/rockwall-tx.html` (Rockwall County)
-      - `locations/royse-city-tx.html` (Rockwall/Collin County)
+      - `locations/royse-city-tx.html` (Central Shop HQ & Main Intake Bay)
       - `locations/terrell-tx.html` (Kaufman County)
       - `locations/greenville-tx.html` (Hunt County)
       - `locations/forney-tx.html` (Kaufman County)
@@ -51,7 +51,7 @@
       - `locations/allen-tx.html` (Collin County)
       - `locations/mansfield-tx.html` (Tarrant/Ellis County)
       - `locations/wolfe-city-tx.html` (Hunt County)
-      - `locations/euless-tx.html` (Central Shop HQ & Intake Bay)
+      - `locations/euless-tx.html` (Tarrant County / Mid-Cities Regional)
 - Executed automated link and asset path resolution audit: 1,274 internal links/assets checked with 100% resolution (0 broken links).
 - Performed complete header audit and responsive navigation overhaul across `css/style.css` and `js/app.js`:
   - **Desktop Spacing (~1081px+)**: Set `.nav-wrapper` gap to `1rem`, tightened `.nav-link` padding and font size, applied `flex-shrink: 0` and `white-space: nowrap` across `.brand-logo`, phone CTA, and Free Quote CTA to prevent text wrapping.
@@ -62,6 +62,45 @@
   - **Sleek Desktop Capsule Dock (1081px+)**: Redesigned desktop `.nav-menu` into a floating dark-industrial capsule dock featuring semi-translucent backdrop blur (`rgba(20, 23, 28, 0.75)`), subtle border, specular top highlight, and luminous active accent pill. Implemented 3-tier viewport scaling: Tier 1 (1400px+ relaxed), Tier 2 (1240px–1399px standard), and Tier 3 (1081px–1239px compact), eliminating excessive spacing while maintaining clean separation from logo and CTAs.
   - **JavaScript Accessibility & Handlers**: Implemented `aria-expanded` & `aria-controls` synchronization, auto-closing upon link click, outside backdrop tap, `Escape` key press, and window resize (> 1080px). Confirmed universal functionality across all 37 root and subfolder HTML files.
 
+- Built and deployed rich custom photography asset library across `assets/` and integrated into all 37 pages:
+  - **Asset Suite (13 distinct images)**:
+    - `bedliner_before.jpg`: Scratched red truck bed (before state for slider).
+    - `bedliner_after.jpg`: Coated black polyurea bedliner inner angle (after state for slider).
+    - `facility_spray_booth.jpg`: Industrial spray booth in Euless, TX with technician in Tyvek suit/respirator spraying truck bed with Graco Reactor proportioner.
+    - `facility_equipment_graco.jpg`: Close-up of technician with spray gun, heated hose bundle, and Graco Reactor E-XP2 plural proportioner unit.
+    - `facility_shop_lifts.jpg`: In-shop floor overview with hydraulic lifts and truck bed.
+    - `service_bedliner.jpg`: High-angle wide view of 8ft Ford Super Duty bed with pristine high-pressure polyurea bedliner.
+    - `service_uv_topcoat.jpg`: Chevy Silverado bedliner with UV protective satin topcoat and water beading under sunlight.
+    - `service_uv_droplets.jpg`: Macro detail of water droplets beading on textured polyurea surface and inner wheel well tub.
+    - `gallery_tailgate_detail.jpg`: Tailgate inner surface with textured non-skid polyurea, tailgate step, and wire trim.
+    - `service_spray_application.jpg`: Dynamic action shot of high-pressure plural component spray gun applying polyurea to truck bed.
+    - `service_rocker_flare.jpg`: Red Silverado body side, bedside rail with water beading and textured liner.
+    - `service_wheel_arch.jpg`: All-terrain off-road wheel, tire, and wheel arch flare alongside textured polyurea.
+    - `service_custom_armor.jpg`: Extreme macro texture of polyurea non-skid ridges and protective grain.
+  - **Page Integrations**:
+    - `index.html`: Hero image upgraded to `service_bedliner.jpg`; slider preserved with `bedliner_before.jpg` / `bedliner_after.jpg`.
+    - `about.html`: Facility overview upgraded to `facility_spray_booth.jpg`.
+    - `services.html`: All 6 service detail cards updated with distinct matching photography (`service_bedliner.jpg`, `service_uv_topcoat.jpg`, `service_wheel_arch.jpg`, `service_spray_application.jpg`, `facility_shop_lifts.jpg`, `service_custom_armor.jpg`).
+    - `gallery.html`: All 6 gallery build cards updated with distinct vehicle builds and texture details (`service_bedliner.jpg`, `service_uv_topcoat.jpg`, `service_rocker_flare.jpg`, `service_spray_application.jpg`, `service_uv_droplets.jpg`, `gallery_tailgate_detail.jpg`).
+    - Dedicated subpages in `services/`: Each service page now displays its dedicated photography asset.
+    - Location pages in `locations/`: Varied photography across all 22 regional landing pages.
+  - **Link Verification**: 100% path resolution verified across all 43 HTML image references (0 broken links).
+
+- Deployed official Blackhawk Protective Coatings logo and migrated business facility address across all 37 pages:
+  - **Official Logo**:
+    - Stored uploaded master logo at `assets/logo.png`, emblem cut at `assets/logo-emblem.png`, transparent silhouette at `assets/logo-transparent.png`, and generated 32x32 browser tab icon at `assets/favicon-32x32.png`.
+    - Fully eradicated placeholder `<svg>` and `BLACKHAWK PROTECTIVE` text styling from all navigation headers and footers across the site.
+    - Integrated responsive `.site-logo` (height `clamp(52px, 5vw, 66px)` desktop, down to 42px/36px on mobile) and `.footer-logo-img` (`max-width: 220px`).
+    - Added `<link rel="icon" type="image/png" href="[prefix]assets/favicon-32x32.png">` across all 37 HTML `<head>` blocks.
+  - **Facility Address Migration**:
+    - Completely replaced old Euless address with the correct coating facility: **`4853 TX-276 Unit # 24, Royse City, TX 75189`**.
+    - Updated all universal address displays in headers, footers, sidebars, contact cards, and forms.
+    - Promoted `locations/royse-city-tx.html` to **Central Coating Shop HQ & Main Intake Bay**, highlighting its home-base status, local 5–10 minute commute, and industrial spray booths.
+    - Repurposed `locations/euless-tx.html` into a regional service landing page guiding Mid-Cities truck owners to Royse City via Hwy 183 and I-30.
+    - Completely updated all 20 individual regional location pages in `locations/` with customized, realistic driving directions, route cards, and highway commute estimates directly to `4853 TX-276 Unit # 24, Royse City, TX 75189` via TX-276 and I-30.
+    - Updated `contact.html` with 4 highway drive-in direction routes to Royse City (Rockwall/Dallas, Collin County, Hunt County, Fort Worth/Mid-Cities).
+    - 0 instances of old address (`4820 Industrial Blvd` or `76040`) or placeholder logo text remain anywhere on the site.
+
 ## Pending Roadmap
 - Integrate backend email service / webhook for `quote.html` and `contact.html` form handlers.
-- Add additional photography assets for each specialized service and before/after slider if provided.
+- When Gemini image generation quota resets, optionally generate additional outdoor fleet shots or overland accessories if desired.
