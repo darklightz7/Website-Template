@@ -175,4 +175,105 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- 4. IN-SHOP VIDEO SHOWCASE & PLAYER HANDLER ---
+    const sprayVideo = document.getElementById('shopSprayVideo');
+    const playToggleBtn = document.getElementById('videoPlayToggle');
+    const muteToggleBtn = document.getElementById('videoMuteToggle');
+    const activeLabel = document.getElementById('videoActiveLabel');
+    const clipTabs = document.querySelectorAll('.clip-tab-btn');
+
+    if (sprayVideo) {
+        let isUserPaused = false;
+
+        const updatePlayBtn = (isPlaying) => {
+            if (playToggleBtn) {
+                playToggleBtn.textContent = isPlaying ? '⏸' : '▶';
+                playToggleBtn.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
+            }
+        };
+
+        const togglePlay = () => {
+            if (sprayVideo.paused) {
+                isUserPaused = false;
+                sprayVideo.play().then(() => updatePlayBtn(true)).catch(() => {});
+            } else {
+                isUserPaused = true;
+                sprayVideo.pause();
+                updatePlayBtn(false);
+            }
+        };
+
+        if (playToggleBtn) {
+            playToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                togglePlay();
+            });
+        }
+
+        sprayVideo.addEventListener('click', togglePlay);
+
+        if (muteToggleBtn) {
+            muteToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sprayVideo.muted = !sprayVideo.muted;
+                muteToggleBtn.textContent = sprayVideo.muted ? '🔇' : '🔊';
+                muteToggleBtn.setAttribute('aria-label', sprayVideo.muted ? 'Unmute audio' : 'Mute audio');
+            });
+        }
+
+        clipTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetSrc = tab.getAttribute('data-clip');
+                const title = tab.getAttribute('data-title');
+                if (!targetSrc) return;
+
+                clipTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                if (activeLabel && title) {
+                    activeLabel.textContent = title;
+                }
+
+                const wasPaused = sprayVideo.paused;
+                const isMuted = sprayVideo.muted;
+
+                sprayVideo.src = targetSrc;
+                sprayVideo.muted = isMuted;
+                sprayVideo.load();
+
+                if (!wasPaused && !isUserPaused) {
+                    sprayVideo.play().then(() => updatePlayBtn(true)).catch(() => {});
+                } else {
+                    updatePlayBtn(false);
+                }
+            });
+        });
+
+        // IntersectionObserver: Pause video when scrolled out of view, auto-resume if not user-paused
+        if ('IntersectionObserver' in window) {
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting && !sprayVideo.paused) {
+                        sprayVideo.pause();
+                        updatePlayBtn(false);
+                    } else if (entry.isIntersecting && sprayVideo.paused && !isUserPaused) {
+                        sprayVideo.play().then(() => updatePlayBtn(true)).catch(() => {});
+                    }
+                });
+            }, { threshold: 0.2 });
+            videoObserver.observe(sprayVideo);
+        }
+    }
+
+    // Gallery video click to play/pause
+    document.querySelectorAll('.gallery-reel-video').forEach(video => {
+        video.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    });
 });

@@ -103,6 +103,20 @@
     - Updated `contact.html` with 4 highway drive-in direction routes to Royse City (Rockwall/Dallas, Collin County, Hunt County, Fort Worth/Mid-Cities).
     - 0 instances of old address (`4820 Industrial Blvd` or `76040`) or placeholder logo text remain anywhere on the site.
 
+- Header Expansion, Logo Enlargement & Responsive Portrait Video Integration:
+  - **Header & Logo Scaling**:
+    - Expanded desktop `.nav-wrapper` height from `80px` to `96px` (down to `88px` on <= 440px and `82px` on <= 340px).
+    - Enlarged `.site-logo` by ~28% from `clamp(52px, 5vw, 66px)` (max 72px) to `clamp(62px, 6vw, 82px)` (max 86px) on desktop, `clamp(52px, 5.5vw, 66px)` on tablet, and `50px` / `42px` on mobile.
+    - Adjusted `.hero` `padding-top` to `186px` and `.page-hero` `padding-top` to `166px` to maintain balanced clearance beneath the fixed header across all pages.
+    - Synchronized mobile drawer dropdown offset (`top: 96px`, `max-height: calc(100vh - 96px)`).
+  - **Portrait Video Manipulation & Integration**:
+    - Preserved original video files non-destructively: `assets/Blackhawk Protective Coatings Bed Liner 1.mp4` and `assets/Blackhawk Protective Coatings Bed Liner 2.mp4` (~4.75MB and ~4.22MB, 480x854 portrait).
+    - Created web-friendly copies `assets/blackhawk_bedliner_spray_1.mp4` and `assets/blackhawk_bedliner_spray_2.mp4`.
+    - Implemented high-tech vertical action frame (`aspect-ratio: 9/16`, `border-radius: 28px`, deep 3D drop-shadow, ambient cyan/blue backlight glow, live pulsating badge, custom play/pause and mute/unmute buttons).
+    - Added dedicated **"WATCH OUR 2,500 PSI HIGH-PRESSURE SPRAY IN ACTION"** section to `index.html` featuring interactive 2-clip switcher tabs, plural spray specs, and in-shop drop-off CTAs.
+    - Added **"IN-BAY ACTION VIDEO REELS"** 2-up showcase grid to `gallery.html`.
+    - Integrated JavaScript video player controller in `js/app.js` with instant clip switching, sound toggles, and IntersectionObserver auto-pause/resume.
+
 ## Pending Roadmap
 - Integrate backend email service / webhook for `quote.html` and `contact.html` form handlers.
 - When Gemini image generation quota resets, optionally generate additional outdoor fleet shots or overland accessories if desired.
