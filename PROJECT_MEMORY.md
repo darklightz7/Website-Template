@@ -117,6 +117,12 @@
     - Added **"IN-BAY ACTION VIDEO REELS"** 2-up showcase grid to `gallery.html`.
     - Integrated JavaScript video player controller in `js/app.js` with instant clip switching, sound toggles, and IntersectionObserver auto-pause/resume.
 
+- Accent Color Migration to `#5DAFE9` & Hero Video Repositioning:
+  - **Color Palette Update**: Migrated website-wide blue accent tokens from `#2980FF` to `#5DAFE9` (with hover `#459EE0`, glow `rgba(93, 175, 233, 0.28)`, subtle borders, and radial ambient gradients), instantly updating buttons, badges, active navigation capsules, and icons across all 37 pages.
+  - **Hero Video Integration**: Moved `assets/blackhawk_bedliner_spray_2.mp4` (Bedliner Texture) into the homepage Hero section, styled within a responsive vertical action card with ambient glow and floating play/mute controls. Responsive scaling for desktop (right column, max 340px) and tablet/mobile (centered, max 320px down to 280px).
+  - **Streamlined Showcase Section**: Dedicated the lower showcase section to `assets/blackhawk_bedliner_spray_1.mp4` (Plural Spray Gun), removing obsolete clip 1/2 switcher tabs and labels.
+  - **Modular Video Handler**: Created unified `initVideoPlayer` in `js/app.js` controlling both videos with independent controls and `IntersectionObserver` pause/resume.
+
 ## Pending Roadmap
 - Integrate backend email service / webhook for `quote.html` and `contact.html` form handlers.
 - When Gemini image generation quota resets, optionally generate additional outdoor fleet shots or overland accessories if desired.

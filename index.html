@@ -53,8 +53,18 @@
                     <a href="services.html" class="btn btn-outline">Explore In-Shop Services</a>
                 </div>
             </div>
-            <div class="hero-image-wrap">
-                <img src="assets/service_bedliner.jpg" alt="Blackhawk In-Shop Textured Spray-On Bedliner Coating">
+            <div class="hero-video-container">
+                <div class="hero-ambient-glow"></div>
+                <div class="hero-video-frame">
+                    <video id="heroSprayVideo" playsinline muted autoplay loop preload="metadata" poster="assets/service_bedliner.jpg">
+                        <source src="assets/blackhawk_bedliner_spray_2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="hero-video-controls">
+                        <button class="video-ctrl-btn" id="heroPlayToggle" aria-label="Pause video">⏸</button>
+                        <button class="video-ctrl-btn" id="heroMuteToggle" aria-label="Unmute audio">🔇</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -117,7 +127,6 @@
                             <button class="video-ctrl-btn" id="videoPlayToggle" aria-label="Pause video">⏸</button>
                             <button class="video-ctrl-btn" id="videoMuteToggle" aria-label="Unmute audio">🔇</button>
                         </div>
-                        <span class="video-clip-label" id="videoActiveLabel">Clip 1: Plural Spray</span>
                     </div>
                 </div>
             </div>
@@ -129,16 +138,6 @@
                 </div>
                 <h2>WATCH OUR 2,500 PSI HIGH-PRESSURE SPRAY IN ACTION</h2>
                 <p class="lead">Step inside our Royse City spray booth. See our technicians apply hot plural-component polyurea with industrial Graco Reactor equipment for an impenetrable, watertight bond.</p>
-
-                <!-- Interactive Clip Switcher -->
-                <div class="video-clip-switcher">
-                    <button class="clip-tab-btn active" data-clip="assets/blackhawk_bedliner_spray_1.mp4" data-title="Clip 1: Plural Spray">
-                        <span>▶</span> Clip 1: Plural Spray Gun
-                    </button>
-                    <button class="clip-tab-btn" data-clip="assets/blackhawk_bedliner_spray_2.mp4" data-title="Clip 2: Texture Finish">
-                        <span>▶</span> Clip 2: Bedliner Texture
-                    </button>
-                </div>
 
                 <ul class="video-features-list">
                     <li class="video-feature-item">
