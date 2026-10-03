@@ -112,7 +112,7 @@
   - **Portrait Video Manipulation & Integration**:
     - Preserved original video files non-destructively: `assets/Blackhawk Protective Coatings Bed Liner 1.mp4` and `assets/Blackhawk Protective Coatings Bed Liner 2.mp4` (~4.75MB and ~4.22MB, 480x854 portrait).
     - Created web-friendly copies `assets/blackhawk_bedliner_spray_1.mp4` and `assets/blackhawk_bedliner_spray_2.mp4`.
-    - Implemented high-tech vertical action frame (`aspect-ratio: 9/16`, `border-radius: 28px`, deep 3D drop-shadow, ambient cyan/blue backlight glow, live pulsating badge, custom play/pause and mute/unmute buttons).
+    - Implemented high-tech vertical action frame (`aspect-ratio: 9/16`, `border-radius: 28px`, deep 3D drop-shadow, ambient cyan/blue backlight glow, unobstructed video view with floating badges removed, custom play/pause and mute/unmute buttons).
     - Added dedicated **"WATCH OUR 2,500 PSI HIGH-PRESSURE SPRAY IN ACTION"** section to `index.html` featuring interactive 2-clip switcher tabs, plural spray specs, and in-shop drop-off CTAs.
     - Added **"IN-BAY ACTION VIDEO REELS"** 2-up showcase grid to `gallery.html`.
     - Integrated JavaScript video player controller in `js/app.js` with instant clip switching, sound toggles, and IntersectionObserver auto-pause/resume.
