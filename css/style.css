@@ -1487,14 +1487,48 @@ footer {
 }
 
 @media (max-width: 1024px) {
+    .hero {
+        padding-top: 116px;
+        padding-bottom: 50px;
+    }
     .hero-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    .hero-content {
+        display: contents;
+    }
+    .hero-tag {
+        order: 1;
+        margin-bottom: 14px;
+        align-self: center;
     }
     .hero-video-container {
-        margin-top: 24px;
+        order: 2;
+        margin-top: 0;
+        margin-bottom: 22px;
+        width: 100%;
     }
     .hero-video-frame {
-        max-width: 320px;
+        max-width: 290px;
+    }
+    .hero-content h1 {
+        order: 3;
+        text-align: center;
+        font-size: clamp(1.85rem, 5.5vw, 2.4rem);
+        margin-bottom: 14px;
+    }
+    .hero-content p {
+        order: 4;
+        text-align: center;
+        margin-bottom: 22px;
+    }
+    .hero-actions {
+        order: 5;
+        justify-content: center;
+        margin-bottom: 20px;
     }
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1612,8 +1646,18 @@ footer {
         font-size: 1.25rem;
     }
 
+    .hero {
+        padding-top: 102px;
+    }
+
+    .hero-tag {
+        font-size: 0.76rem;
+        padding: 5px 12px;
+        margin-bottom: 12px;
+    }
+
     .hero-video-frame {
-        max-width: 280px;
+        max-width: 260px;
     }
 }
 
@@ -1640,5 +1684,13 @@ footer {
         width: 34px;
         height: 34px;
         font-size: 1.15rem;
+    }
+
+    .hero {
+        padding-top: 96px;
+    }
+
+    .hero-video-frame {
+        max-width: 235px;
     }
 }

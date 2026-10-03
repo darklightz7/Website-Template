@@ -119,7 +119,7 @@
 
 - Accent Color Migration to `#5DAFE9` & Hero Video Repositioning:
   - **Color Palette Update**: Migrated website-wide blue accent tokens from `#2980FF` to `#5DAFE9` (with hover `#459EE0`, glow `rgba(93, 175, 233, 0.28)`, subtle borders, and radial ambient gradients), instantly updating buttons, badges, active navigation capsules, and icons across all 37 pages.
-  - **Hero Video Integration**: Moved `assets/blackhawk_bedliner_spray_2.mp4` (Bedliner Texture) into the homepage Hero section, styled within a responsive vertical action card with ambient glow and floating play/mute controls. Responsive scaling for desktop (right column, max 340px) and tablet/mobile (centered, max 320px down to 280px).
+  - **Hero Video Integration & Mobile Reordering**: Moved `assets/blackhawk_bedliner_spray_2.mp4` (Bedliner Texture) into the homepage Hero section, styled within a responsive vertical action card with ambient glow and floating play/mute controls. Desktop preserved 100% (right column, max 340px). On mobile (<= 1024px / <= 440px), reduced top padding to 116px/102px and reordered elements so the video sits directly beneath the "In-Shop High-Pressure Polyurea Application" badge and above the "TOUGH-AS-NAILS" headline, ensuring the full video is clearly visible above the scroll fold.
   - **Streamlined Showcase Section**: Dedicated the lower showcase section to `assets/blackhawk_bedliner_spray_1.mp4` (Plural Spray Gun), removing obsolete clip 1/2 switcher tabs and labels.
   - **Modular Video Handler**: Created unified `initVideoPlayer` in `js/app.js` controlling both videos with independent controls and `IntersectionObserver` pause/resume.
 
