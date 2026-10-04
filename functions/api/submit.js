@@ -98,19 +98,40 @@ export async function onRequestPost(context) {
         // Vehicle summary string
         const vehicleSummary = [body.year, body.make, body.model].filter(Boolean).join(' ');
 
-        // 6. Build GoHighLevel Payload
+        // 6. Build GHL Tags with Source Attribution
+        const tags = isQuote 
+            ? ['Website Lead', 'In-Shop Quote Request', 'Royse City Shop'] 
+            : ['Website Lead', 'Contact Inquiry', 'Royse City Shop'];
+
+        if (body.lead_source && !body.lead_source.toLowerCase().includes('direct')) {
+            tags.push(`Source: ${body.lead_source}`);
+        }
+
+        // 7. Build GoHighLevel Payload
         const ghlPayload = {
-            // Standard GHL Contact Fields
+            // Standard GHL Contact & Source Fields
             first_name: firstName,
             last_name: lastName,
             name: body.name.trim(),
             email: body.email.trim(),
             phone: body.phone.trim(),
+            source: body.lead_source || 'Website Lead',
 
             // GHL Tags
-            tags: isQuote 
-                ? ['Website Lead', 'In-Shop Quote Request', 'Royse City Shop'] 
-                : ['Website Lead', 'Contact Inquiry', 'Royse City Shop'],
+            tags: tags,
+
+            // Campaign & Ad Attribution (GHL native & custom fields)
+            lead_source: body.lead_source || 'Direct / Organic',
+            initial_referrer: body.initial_referrer || 'Direct / None',
+            first_landing_page: body.first_landing_page || '',
+            submission_page: body.submission_page || body.source_page || '',
+            utm_source: body.utm_source || '',
+            utm_medium: body.utm_medium || '',
+            utm_campaign: body.utm_campaign || '',
+            utm_content: body.utm_content || '',
+            utm_term: body.utm_term || '',
+            gclid: body.gclid || '',
+            fbclid: body.fbclid || '',
 
             // Metadata
             form_type: formType,

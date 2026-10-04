@@ -151,7 +151,100 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. UNIVERSAL ASYNC FORM SUBMISSION HANDLER (GHL EDGE WEBHOOK) ---
+    // --- 3. FIRST-TOUCH ATTRIBUTION & CAMPAIGN TRACKER ---
+    const initAttributionTracker = () => {
+        try {
+            const STORAGE_KEY = 'bh_attribution_first_touch';
+            const existing = localStorage.getItem(STORAGE_KEY);
+
+            // If already recorded within the last 30 days, keep original first-touch
+            if (existing) {
+                const parsed = JSON.parse(existing);
+                const ageDays = (Date.now() - (parsed._recorded_at || 0)) / (1000 * 60 * 60 * 24);
+                if (ageDays < 30) return parsed;
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const ref = (document.referrer || '').trim();
+            const currentHost = window.location.hostname;
+
+            // Determine if referrer is external (prevents internal page self-referral)
+            let externalReferrer = '';
+            if (ref) {
+                try {
+                    const refUrl = new URL(ref);
+                    if (refUrl.hostname !== currentHost) {
+                        externalReferrer = ref;
+                    }
+                } catch (e) {
+                    if (!ref.includes(currentHost)) externalReferrer = ref;
+                }
+            }
+
+            // High-level marketing channel classification
+            let leadSource = 'Direct / Organic';
+            const utmSource = urlParams.get('utm_source') || '';
+            const utmMedium = urlParams.get('utm_medium') || '';
+            const gclid = urlParams.get('gclid') || '';
+            const fbclid = urlParams.get('fbclid') || '';
+
+            if (gclid || (utmSource.toLowerCase() === 'google' && utmMedium.toLowerCase() === 'cpc')) {
+                leadSource = 'Google Ads';
+            } else if (fbclid || utmSource.toLowerCase().includes('facebook') || utmSource.toLowerCase().includes('instagram')) {
+                leadSource = 'Meta Ads / Social';
+            } else if (utmSource) {
+                leadSource = utmSource + (utmMedium ? ` / ${utmMedium}` : '');
+            } else if (externalReferrer) {
+                const refLower = externalReferrer.toLowerCase();
+                if (refLower.includes('google.')) leadSource = 'Google Organic Search';
+                else if (refLower.includes('bing.')) leadSource = 'Bing Organic Search';
+                else if (refLower.includes('yahoo.')) leadSource = 'Yahoo Search';
+                else if (refLower.includes('yelp.')) leadSource = 'Yelp Referral';
+                else if (refLower.includes('facebook.') || refLower.includes('instagram.')) leadSource = 'Social Media Referral';
+                else if (refLower.includes('blackhawkblasting.')) leadSource = 'Blackhawk Blasting Referral';
+                else {
+                    try {
+                        leadSource = 'Referral (' + new URL(externalReferrer).hostname + ')';
+                    } catch (e) {
+                        leadSource = 'External Referral';
+                    }
+                }
+            }
+
+            const attributionData = {
+                lead_source: leadSource,
+                initial_referrer: externalReferrer || 'Direct / None',
+                first_landing_page: window.location.pathname + window.location.search,
+                utm_source: utmSource,
+                utm_medium: utmMedium,
+                utm_campaign: urlParams.get('utm_campaign') || '',
+                utm_content: urlParams.get('utm_content') || '',
+                utm_term: urlParams.get('utm_term') || '',
+                gclid: gclid,
+                fbclid: fbclid,
+                _recorded_at: Date.now()
+            };
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(attributionData));
+            return attributionData;
+        } catch (err) {
+            // Failsafe: never break site execution if storage is disabled in private browsing
+            return null;
+        }
+    };
+
+    const getAttributionData = () => {
+        try {
+            const stored = localStorage.getItem('bh_attribution_first_touch');
+            if (stored) return JSON.parse(stored);
+        } catch (e) {}
+        return initAttributionTracker() || {};
+    };
+
+    // Initialize attribution immediately on first view
+    initAttributionTracker();
+
+    // --- 4. UNIVERSAL ASYNC FORM SUBMISSION HANDLER (GHL EDGE WEBHOOK) ---
     const formsToHandle = [
         document.getElementById('quote-form'),
         document.getElementById('contact-form')
@@ -195,8 +288,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     payload.services = services;
                 }
 
-                // Append browser context
+                // Append browser context & first-touch attribution
                 payload.source_page = window.location.href;
+                payload.submission_page = window.location.pathname;
+
+                const attr = getAttributionData();
+                Object.assign(payload, {
+                    lead_source: attr.lead_source || 'Direct / Website Form',
+                    initial_referrer: attr.initial_referrer || 'Direct / None',
+                    first_landing_page: attr.first_landing_page || window.location.pathname,
+                    utm_source: attr.utm_source || '',
+                    utm_medium: attr.utm_medium || '',
+                    utm_campaign: attr.utm_campaign || '',
+                    utm_content: attr.utm_content || '',
+                    utm_term: attr.utm_term || '',
+                    gclid: attr.gclid || '',
+                    fbclid: attr.fbclid || ''
+                });
 
                 // POST to Cloudflare Pages edge function (/api/submit)
                 const response = await fetch('/api/submit', {

@@ -138,7 +138,13 @@
     - Replaced dummy form submission with unified async `fetch('/api/submit')` handler for both `#quote-form` and `#contact-form`.
     - Integrated button loading states (`↻ Submitting to Shop...`) with smooth CSS spin animation and disabled toggle to prevent double submissions.
     - Added `#form-error` alert banners and CSS styling across `css/style.css`, guiding customers to call the shop directly at `(214) 555-0142` in case of offline network dropouts.
-  - **Live Webhook Endpoint Verification**: Executed live payload dispatch test to the GHL webhook trigger, receiving verified `{"status": "Success: test request received"}` response.
+  - **First-Touch Marketing & Referral Attribution System**:
+    - Implemented client-side attribution engine in `js/app.js` using a 30-day `localStorage` lock to preserve original entry channels across multi-page navigation and return visits.
+    - Captures external referrers (e.g. Google, Bing, Yelp, Meta, Blackhawk Blasting) while preventing internal self-referral leaks.
+    - Auto-captures UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`, etc.) and ad click identifiers (`gclid`, `fbclid`).
+    - Tracks original entry landing page (`first_landing_page`, e.g. `/locations/royse-city-tx.html`) vs submission page.
+    - Automatically maps native GHL fields (`source`, `utm_source`, `utm_medium`, `gclid`), custom fields, and automated attribution tags (e.g. `Source: Google Organic Search`).
+  - **Live Webhook Endpoint Verification**: Executed live payload dispatch test to the GHL webhook trigger, receiving verified `{"status": "Success: request sent to trigger execution server"}` response.
 
 ## Pending Roadmap
 - When Gemini image generation quota resets, optionally generate additional outdoor fleet shots or overland accessories if desired.
