@@ -60,8 +60,18 @@
                     <div id="form-success" class="form-success-message">
                         ✓ Thank you! We received your message. Our shop management will reply shortly.
                     </div>
+                    <div id="form-error" class="form-error-message">
+                        ⚠️ There was an issue submitting your message. Please try again or call our shop directly at <a href="tel:2145550142" style="color: #fff; text-decoration: underline; font-weight: 700;">(214) 555-0142</a>.
+                    </div>
 
-                    <form id="quote-form">
+                    <form id="contact-form">
+                        <input type="hidden" name="form_type" value="contact">
+
+                        <!-- Invisible Anti-Spam Honeypot (traps automated bots) -->
+                        <div style="display: none !important;" aria-hidden="true">
+                            <label for="c-gotcha">Do not fill this field</label>
+                            <input type="text" id="c-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="c-name">Full Name *</label>

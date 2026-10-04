@@ -58,8 +58,18 @@
                     <div id="form-success" class="form-success-message">
                         ✓ Thank you! Your in-shop quote request has been submitted successfully. Our Royse City shop team will reach out within 2 business hours!
                     </div>
+                    <div id="form-error" class="form-error-message">
+                        ⚠️ There was an issue submitting your request. Please try again or call our shop directly at <a href="tel:2145550142" style="color: #fff; text-decoration: underline; font-weight: 700;">(214) 555-0142</a>.
+                    </div>
 
                     <form id="quote-form">
+                        <input type="hidden" name="form_type" value="quote">
+                        
+                        <!-- Invisible Anti-Spam Honeypot (traps automated bots) -->
+                        <div style="display: none !important;" aria-hidden="true">
+                            <label for="q-gotcha">Do not fill this field</label>
+                            <input type="text" id="q-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
                         
                         <!-- Contact Details -->
                         <div class="form-group">

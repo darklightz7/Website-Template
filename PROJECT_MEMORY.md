@@ -1,6 +1,8 @@
 # Blackhawk Protective Coatings - Project Memory
 ## Core Architecture
 - Static responsive website template (37 HTML pages, `css/style.css`, `js/app.js`).
+- Infrastructure & Hosting: **Cloudflare Pages** connected to GitHub repository (automatic deployment on `git push`).
+- Serverless Layer: **Cloudflare Pages Functions** (`/functions/api/`) used for secure edge routing, API proxying, and environment variable management (e.g. `GHL_WEBHOOK_URL`).
 - Central facility: 4853 TX-276 Unit # 24, Royse City, TX 75189 (Rockwall County / East DFW hub).
 - Styles: `css/style.css` (Strictly preserved, dark industrial high-performance theme).
 - Scripts: `js/app.js` (Mobile menu toggle, before/after slider, interactive quote & contact form handlers).
@@ -123,7 +125,21 @@
   - **Streamlined Showcase Section**: Dedicated the lower showcase section to `assets/blackhawk_bedliner_spray_1.mp4` (Plural Spray Gun), removing obsolete clip 1/2 switcher tabs and labels.
   - **Modular Video Handler**: Created unified `initVideoPlayer` in `js/app.js` controlling both videos with independent controls and `IntersectionObserver` pause/resume.
 
+- GoHighLevel (GHL) Webhook Integration & Anti-Spam Security via Cloudflare Pages Functions:
+  - **Zero-Exposure Serverless Edge Proxy**: Created `functions/api/submit.js` running natively on Cloudflare Pages edge. The GHL Inbound Webhook (`https://services.leadconnectorhq.com/hooks/rU55IFhIh72Uw01kikrx/webhook-trigger/16b2ca05-ede0-4e31-b55e-767b5ae93f52`) is securely stored server-side with fallback support for Cloudflare's `env.GHL_WEBHOOK_URL` secret variable. Zero webhook endpoints or credentials are exposed in client-side HTML/JS or DevTools network traffic.
+  - **Anti-Spam Honeypot Traps**: Inserted hidden honeypot fields (`_gotcha`) in `quote.html` and `contact.html`. Automated spambots filling the trap receive a fake HTTP 200 without ever hitting the GHL CRM webhook or triggering SMS/email automations.
+  - **Comprehensive Payload Normalization**:
+    - Automatically splits customer name into `first_name` and `last_name` for clean CRM contact records.
+    - Formats truck bed dimensions, rail encapsulation (`under-rail` / `over-rail`), and drop-off windows into customer-friendly custom fields.
+    - Serializes multi-checkbox service checklists into readable strings and arrays.
+    - Tags leads automatically (`["Website Lead", "In-Shop Quote Request", "Royse City Shop"]` or `["Website Lead", "Contact Inquiry", "Royse City Shop"]`).
+    - Captures referrer URL, ISO timestamp, and Cloudflare client IP (`cf-connecting-ip`).
+  - **Universal Asynchronous Client Handler (`js/app.js`)**:
+    - Replaced dummy form submission with unified async `fetch('/api/submit')` handler for both `#quote-form` and `#contact-form`.
+    - Integrated button loading states (`↻ Submitting to Shop...`) with smooth CSS spin animation and disabled toggle to prevent double submissions.
+    - Added `#form-error` alert banners and CSS styling across `css/style.css`, guiding customers to call the shop directly at `(214) 555-0142` in case of offline network dropouts.
+  - **Live Webhook Endpoint Verification**: Executed live payload dispatch test to the GHL webhook trigger, receiving verified `{"status": "Success: test request received"}` response.
+
 ## Pending Roadmap
-- Integrate backend email service / webhook for `quote.html` and `contact.html` form handlers.
 - When Gemini image generation quota resets, optionally generate additional outdoor fleet shots or overland accessories if desired.
 
